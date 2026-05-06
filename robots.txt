@@ -1,4 +1,4 @@
-﻿User-agent: *
+User-agent: *
 Allow: /
 
-Sitemap: https://scrapwest.ae/sitemap.xml
+Sitemap: https://manalk14322-max.github.io/scrapwest-website/sitemap.xml

@@ -1,6 +1,6 @@
-# Scrapwest UAE Website
+# Scrape West UAE Website
 
-Static corporate website for Scrapwest, focused on UAE scrap buying leads through phone calls, WhatsApp quotes, service pages and location SEO pages.
+Static corporate website for Scrape West, focused on UAE scrap buying leads through phone calls, WhatsApp quotes, service pages and location SEO pages.
 
 ## Open Locally
 
