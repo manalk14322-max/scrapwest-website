@@ -3580,6 +3580,268 @@ p {
   }
 }
 
+/* Final premium theme polish */
+:root {
+  --sw-navy: #07111F;
+  --sw-navy-2: #0B1626;
+  --sw-navy-3: #111827;
+  --sw-orange: #F97316;
+  --sw-orange-2: #EA580C;
+  --sw-green: #16A34A;
+  --sw-gray: #F4F7FA;
+  --sw-soft: #FFFFFF;
+  --sw-line: rgba(15, 23, 42, 0.1);
+  --sw-shadow: 0 22px 60px rgba(7, 17, 31, 0.12);
+  --sw-shadow-strong: 0 30px 80px rgba(7, 17, 31, 0.22);
+}
+
+body {
+  background:
+    linear-gradient(180deg, #ffffff 0%, #f4f7fa 45%, #ffffff 100%);
+}
+
+.sw-header {
+  background:
+    linear-gradient(180deg, rgba(7, 17, 31, 0.98), rgba(7, 17, 31, 0.94));
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.22);
+}
+
+.sw-header .site-logo {
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.22));
+}
+
+.sw-header .main-nav > a,
+.sw-header .nav-drop-trigger {
+  position: relative;
+  padding-block: 8px;
+  color: rgba(255, 255, 255, 0.92);
+  letter-spacing: 0.01em;
+  transition: color 0.18s ease;
+}
+
+.sw-header .main-nav > a::before,
+.sw-header .nav-drop-trigger::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -8px;
+  height: 2px;
+  background: var(--sw-orange);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.2s ease;
+}
+
+.sw-header .main-nav > a:hover::before,
+.sw-header .nav-dropdown:hover .nav-drop-trigger::before,
+.sw-header .main-nav > a[aria-current="page"]::before {
+  transform: scaleX(1);
+}
+
+.sw-header .main-nav a[aria-current="page"]::after {
+  display: none;
+}
+
+.sw-header .btn-white {
+  background: #ffffff;
+  color: var(--sw-navy);
+  box-shadow: 0 12px 28px rgba(255, 255, 255, 0.08);
+}
+
+.sw-header .btn-green {
+  background: var(--sw-green);
+  border-color: var(--sw-green);
+  color: #fff;
+  box-shadow: 0 12px 30px rgba(22, 163, 74, 0.24);
+}
+
+.btn,
+.sw-service-card,
+.sw-material-grid a,
+.sw-type-grid article,
+.sw-sell-grid article,
+.sw-contact-cards a,
+.sw-faq-grid article,
+.sw-review-panel,
+.sw-dark-why-card,
+.quote-card {
+  border-radius: 10px;
+}
+
+.btn {
+  min-height: 50px;
+  border-radius: 8px;
+  letter-spacing: 0.01em;
+}
+
+.sw-btn-orange {
+  background:
+    linear-gradient(135deg, #FB923C 0%, var(--sw-orange) 48%, var(--sw-orange-2) 100%);
+  border-color: transparent;
+  box-shadow: 0 18px 42px rgba(249, 115, 22, 0.28);
+}
+
+.sw-btn-orange:hover {
+  background:
+    linear-gradient(135deg, #F97316 0%, #EA580C 100%);
+  box-shadow: 0 22px 50px rgba(249, 115, 22, 0.38);
+}
+
+.sw-btn-dark {
+  background: rgba(7, 17, 31, 0.88);
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 18px 42px rgba(7, 17, 31, 0.25);
+}
+
+.sw-hero-bg,
+.sw-service-hero-bg {
+  filter: saturate(1.08) contrast(1.08);
+}
+
+.sw-hero-bg::after,
+.sw-service-hero-bg::after {
+  background:
+    linear-gradient(90deg, rgba(7, 17, 31, 0.94) 0%, rgba(7, 17, 31, 0.76) 44%, rgba(7, 17, 31, 0.18) 100%),
+    radial-gradient(circle at 75% 22%, rgba(249, 115, 22, 0.28), transparent 30%),
+    radial-gradient(circle at 12% 85%, rgba(22, 163, 74, 0.13), transparent 24%);
+}
+
+.sw-hero h1,
+.sw-service-hero-copy h1 {
+  text-shadow: 0 18px 48px rgba(0, 0, 0, 0.35);
+}
+
+.sw-kicker,
+.sw-section-title p {
+  color: var(--sw-orange);
+}
+
+.sw-stats {
+  border-color: rgba(255, 255, 255, 0.18);
+  background:
+    linear-gradient(135deg, rgba(15, 23, 42, 0.96), rgba(7, 17, 31, 0.96));
+}
+
+.sw-stats article {
+  position: relative;
+}
+
+.sw-stats article::before {
+  content: "";
+  width: 34px;
+  height: 34px;
+  margin-bottom: 8px;
+  border: 1px solid rgba(249, 115, 22, 0.55);
+  border-radius: 10px;
+  background: rgba(249, 115, 22, 0.12);
+}
+
+.sw-service-card,
+.sw-material-grid a,
+.sw-type-grid article,
+.sw-sell-grid article,
+.sw-faq-grid article,
+.sw-contact-cards a {
+  border-color: rgba(15, 23, 42, 0.08);
+  box-shadow: var(--sw-shadow);
+}
+
+.sw-service-card:hover,
+.sw-material-grid a:hover,
+.sw-type-grid article:hover,
+.sw-sell-grid article:hover,
+.sw-contact-cards a:hover {
+  transform: translateY(-7px);
+  border-color: rgba(249, 115, 22, 0.42);
+  box-shadow: var(--sw-shadow-strong);
+}
+
+.sw-service-card img,
+.sw-material-grid img,
+.sw-type-grid img,
+.sw-detail-image img,
+.sw-detail-image video {
+  filter: saturate(1.08) contrast(1.04);
+}
+
+.sw-service-card span,
+.sw-sell-grid span,
+.sw-process-line span {
+  background:
+    linear-gradient(135deg, #FB923C, var(--sw-orange-2));
+  color: #fff;
+  box-shadow: 0 14px 32px rgba(249, 115, 22, 0.28);
+}
+
+.sw-about-band,
+.sw-detail-overview,
+.sw-section {
+  position: relative;
+}
+
+.sw-section::before,
+.sw-detail-overview::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 10% 0%, rgba(249, 115, 22, 0.045), transparent 26%),
+    radial-gradient(circle at 90% 15%, rgba(7, 17, 31, 0.035), transparent 26%);
+}
+
+.sw-section > .container,
+.sw-detail-overview > .container {
+  position: relative;
+  z-index: 1;
+}
+
+.sw-why,
+.sw-process,
+.sw-final-cta,
+.sw-service-final {
+  background:
+    linear-gradient(90deg, rgba(7, 17, 31, 0.98), rgba(15, 23, 42, 0.93)),
+    url("assets/hero/scrap-metal-pile.jpg") center/cover fixed;
+}
+
+.sw-why-grid article,
+.sw-process-line article,
+.sw-dark-why-grid span {
+  border-color: rgba(255, 255, 255, 0.13);
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.sw-footer {
+  background:
+    radial-gradient(circle at 20% 0%, rgba(249, 115, 22, 0.13), transparent 24%),
+    linear-gradient(180deg, #07111F 0%, #030812 100%);
+}
+
+.sw-map-card {
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+@media (max-width: 700px) {
+  .sw-hero,
+  .sw-hero-grid,
+  .sw-service-hero-detail,
+  .sw-service-hero-grid {
+    min-height: 500px;
+  }
+
+  .sw-stats article::before {
+    width: 28px;
+    height: 28px;
+  }
+
+  .btn {
+    min-height: 48px;
+  }
+}
+
 /* Premium service detail pages */
 .sw-service-hero-detail {
   position: relative;
