@@ -146,7 +146,7 @@ document.querySelectorAll(".quote-form").forEach((form) => {
     ].join("\n");
 
     showToast("Opening WhatsApp with your request...");
-    window.open(`https://wa.me/971523181007?text=${encodeURIComponent(message)}`, "_blank", "noopener");
+    window.open(`https://wa.me/971501988684?text=${encodeURIComponent(message)}`, "_blank", "noopener");
   });
 });
 
