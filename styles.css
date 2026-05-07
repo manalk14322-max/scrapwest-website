@@ -5837,3 +5837,47 @@ body {
     color: var(--sw-orange);
   }
 }
+
+/* Header menu button fix for tablet and narrow desktop */
+.sw-header .menu-toggle {
+  align-items: center;
+  justify-content: center;
+  min-width: 96px;
+  height: 46px;
+  padding: 0 18px;
+  border: 1px solid rgba(201, 162, 74, 0.55);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  font-size: 0.86rem;
+  font-weight: 900;
+  letter-spacing: 0;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+@media (max-width: 1280px) {
+  .sw-header .sw-nav {
+    width: min(1180px, calc(100% - 40px));
+  }
+
+  .sw-header .menu-toggle {
+    display: inline-flex;
+  }
+}
+
+@media (max-width: 700px) {
+  .sw-header .sw-nav {
+    width: 100%;
+    padding-inline: 14px;
+  }
+
+  .sw-header .menu-toggle {
+    min-width: 82px;
+    height: 42px;
+    padding: 0 14px;
+    background: #fff;
+    color: var(--sw-navy);
+    border-color: rgba(7, 21, 29, 0.16);
+  }
+}
