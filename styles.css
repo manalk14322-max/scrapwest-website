@@ -3494,6 +3494,276 @@ p {
   }
 }
 
+/* Premium service detail pages */
+.sw-service-hero-detail {
+  position: relative;
+  min-height: 560px;
+  overflow: hidden;
+  background: #07111F;
+  color: #fff;
+}
+
+.sw-service-hero-bg {
+  position: absolute;
+  inset: 0;
+  background-position: center right;
+  background-size: cover;
+}
+
+.sw-service-hero-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(7, 17, 31, 0.98) 0%, rgba(7, 17, 31, 0.82) 44%, rgba(7, 17, 31, 0.32) 100%),
+    radial-gradient(circle at 80% 20%, rgba(249, 115, 22, 0.24), transparent 32%);
+}
+
+.sw-service-hero-grid {
+  position: relative;
+  z-index: 1;
+  min-height: 560px;
+  display: grid;
+  align-items: center;
+}
+
+.sw-service-hero-copy {
+  max-width: 720px;
+  padding: 72px 0;
+}
+
+.sw-service-hero-copy h1 {
+  max-width: 720px;
+  color: #fff;
+  font-size: clamp(2.45rem, 5.5vw, 5rem);
+  line-height: 0.98;
+  text-transform: uppercase;
+}
+
+.sw-service-hero-copy h1::first-line {
+  color: var(--sw-orange);
+}
+
+.sw-service-hero-copy > p:not(.sw-kicker) {
+  max-width: 650px;
+  margin: 20px 0 0;
+  color: rgba(255, 255, 255, 0.86);
+  line-height: 1.75;
+}
+
+.sw-service-cats {
+  background: #ffffff;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.1);
+}
+
+.sw-detail-overview {
+  padding: 58px 0;
+  background: #ffffff;
+}
+
+.sw-detail-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  gap: clamp(28px, 5vw, 70px);
+  align-items: center;
+}
+
+.sw-detail-image {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.14);
+}
+
+.sw-detail-image::after {
+  content: "Best market rates";
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  padding: 13px 16px;
+  border-radius: 6px;
+  background: rgba(15, 23, 42, 0.9);
+  color: #fff;
+  font-size: 0.82rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.sw-detail-image img {
+  width: 100%;
+  height: clamp(320px, 42vw, 520px);
+  object-fit: cover;
+}
+
+.sw-detail-copy h2 {
+  max-width: 680px;
+  color: var(--sw-text);
+  font-size: clamp(2rem, 4vw, 3.35rem);
+  line-height: 1.08;
+}
+
+.sw-detail-copy p {
+  color: var(--sw-muted);
+  line-height: 1.75;
+}
+
+.sw-sell-process {
+  background: #F8FAFC;
+}
+
+.sw-sell-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.sw-sell-grid article {
+  min-height: 210px;
+  padding: 24px 18px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 8px;
+  background: #fff;
+  text-align: center;
+  box-shadow: 0 18px 46px rgba(15, 23, 42, 0.06);
+}
+
+.sw-sell-grid span {
+  display: inline-grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  margin-bottom: 14px;
+  border-radius: 50%;
+  background: rgba(249, 115, 22, 0.14);
+  color: var(--sw-orange);
+  font-weight: 900;
+}
+
+.sw-sell-grid h3 {
+  color: var(--sw-text);
+  font-size: 0.98rem;
+}
+
+.sw-sell-grid p {
+  color: var(--sw-muted);
+  font-size: 0.82rem;
+  line-height: 1.6;
+}
+
+.sw-types-section {
+  background: #ffffff;
+}
+
+.sw-type-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.sw-type-grid article {
+  overflow: hidden;
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.sw-type-grid article:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 24px 54px rgba(15, 23, 42, 0.14);
+}
+
+.sw-type-grid img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+}
+
+.sw-type-grid span {
+  display: block;
+  padding: 12px 10px;
+  color: var(--sw-text);
+  font-size: 0.78rem;
+  font-weight: 900;
+  text-align: center;
+}
+
+.sw-service-process {
+  padding: 58px 0;
+}
+
+.sw-service-final {
+  padding: 38px 0;
+  background: #07111F;
+  color: #fff;
+}
+
+.sw-service-final h2 {
+  color: #fff;
+}
+
+.sw-service-final p:not(.sw-kicker) {
+  color: rgba(255, 255, 255, 0.74);
+}
+
+@media (max-width: 1100px) {
+  .sw-sell-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .sw-type-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .sw-detail-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .sw-service-hero-detail,
+  .sw-service-hero-grid {
+    min-height: 520px;
+  }
+
+  .sw-service-hero-copy {
+    padding: 54px 0;
+  }
+
+  .sw-service-hero-copy h1 {
+    font-size: clamp(2.05rem, 10vw, 3.1rem);
+  }
+
+  .sw-detail-overview {
+    padding: 38px 0;
+  }
+
+  .sw-detail-image img {
+    height: 260px;
+  }
+
+  .sw-sell-grid,
+  .sw-type-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sw-sell-grid article {
+    min-height: auto;
+  }
+
+  .sw-type-grid article {
+    display: grid;
+    grid-template-columns: 112px minmax(0, 1fr);
+    align-items: center;
+  }
+
+  .sw-type-grid img {
+    height: 88px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
