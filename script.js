@@ -106,12 +106,14 @@ document.addEventListener("click", (event) => {
 });
 
 document.querySelectorAll(".quote-form").forEach((form) => {
-  form.addEventListener("submit", (event) => {
+  form.addEventListener("submit", async (event) => {
     event.preventDefault();
     const data = new FormData(form);
     const phone = String(data.get("phone") || "").trim();
     const location = String(data.get("location") || "").trim();
     const scrapType = String(data.get("scrap-type") || "").trim();
+    const submitButton = form.querySelector('[type="submit"]');
+    const originalButtonText = submitButton?.textContent;
 
     form.querySelectorAll(".form-error").forEach((error) => error.remove());
     form.querySelectorAll("[aria-invalid]").forEach((field) => field.removeAttribute("aria-invalid"));
@@ -134,6 +136,7 @@ document.querySelectorAll(".quote-form").forEach((form) => {
       return;
     }
 
+    data.set("pageUrl", window.location.href);
     const file = data.get("image");
     const fileNote = file && file.name ? `Uploaded image selected: ${file.name}` : "No image selected";
     const message = [
@@ -145,8 +148,45 @@ document.querySelectorAll(".quote-form").forEach((form) => {
       fileNote
     ].join("\n");
 
-    showToast("Opening WhatsApp with your request...");
-    window.open(`https://wa.me/971501988684?text=${encodeURIComponent(message)}`, "_blank", "noopener");
+    const fallbackWhatsApp = `https://wa.me/971501988684?text=${encodeURIComponent(message)}`;
+    const apiBase = String(window.SCRAPWEST_API_URL || form.dataset.apiUrl || "").replace(/\/$/, "");
+
+    if (!apiBase) {
+      showToast("Opening WhatsApp with your request...");
+      window.open(fallbackWhatsApp, "_blank", "noopener");
+      return;
+    }
+
+    try {
+      if (submitButton) {
+        submitButton.disabled = true;
+        submitButton.textContent = "Sending...";
+      }
+
+      showToast("Sending your quote request...");
+      const response = await fetch(`${apiBase}/api/quote`, {
+        method: "POST",
+        body: data
+      });
+      const result = await response.json().catch(() => ({}));
+
+      if (!response.ok || !result.ok) {
+        throw new Error(result.message || "Quote request failed");
+      }
+
+      form.reset();
+      showToast("Request received. Opening WhatsApp too...");
+      window.open(result.whatsappUrl || fallbackWhatsApp, "_blank", "noopener");
+    } catch (error) {
+      console.warn(error);
+      showToast("Backend is unavailable, opening WhatsApp instead.");
+      window.open(fallbackWhatsApp, "_blank", "noopener");
+    } finally {
+      if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.textContent = originalButtonText;
+      }
+    }
   });
 });
 

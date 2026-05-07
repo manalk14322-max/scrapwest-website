@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: scrapwest-backend
+    env: node
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: WHATSAPP_NUMBER
+        value: 971501988684
