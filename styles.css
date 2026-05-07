@@ -6772,6 +6772,41 @@ body {
   color: #050B12;
 }
 
+/* Hero background visibility balance */
+.sw-hero-bg {
+  opacity: 1;
+  filter: saturate(1.18) contrast(1.14) brightness(1.08);
+}
+
+.sw-hero-bg::after,
+.sw-service-hero-bg::after {
+  background:
+    linear-gradient(90deg, rgba(5, 11, 18, 0.94) 0%, rgba(5, 11, 18, 0.78) 34%, rgba(5, 11, 18, 0.34) 62%, rgba(5, 11, 18, 0.16) 100%),
+    radial-gradient(circle at 76% 34%, rgba(249, 115, 22, 0.14), transparent 28%),
+    linear-gradient(180deg, rgba(5, 11, 18, 0.18), rgba(5, 11, 18, 0.38));
+}
+
+.sw-hero::before {
+  opacity: 0.62;
+  background:
+    linear-gradient(115deg, transparent 0 48%, rgba(249, 115, 22, 0.09) 55%, transparent 66%),
+    radial-gradient(circle at 78% 52%, rgba(249, 115, 22, 0.12), transparent 34%);
+}
+
+.sw-hero-copy {
+  max-width: 790px;
+  text-shadow: 0 3px 24px rgba(0, 0, 0, 0.32);
+}
+
+@media (max-width: 700px) {
+  .sw-hero-bg::after,
+  .sw-service-hero-bg::after {
+    background:
+      linear-gradient(180deg, rgba(5, 11, 18, 0.9), rgba(5, 11, 18, 0.72)),
+      radial-gradient(circle at 80% 10%, rgba(249, 115, 22, 0.12), transparent 30%);
+  }
+}
+
 /* Industries and UAE areas readability fix */
 .sw-split-section .sw-section-title h2 {
   font-size: clamp(2.15rem, 4.8vw, 4.65rem);
