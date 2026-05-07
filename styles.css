@@ -3835,3 +3835,807 @@ p {
     padding-bottom: 96px;
   }
 }
+
+/* ScrapWest premium homepage refresh */
+:root {
+  --sw-navy: #0F172A;
+  --sw-navy-2: #07111F;
+  --sw-orange: #F97316;
+  --sw-orange-2: #EA580C;
+  --sw-gray: #F1F5F9;
+  --sw-text: #111827;
+  --sw-muted: #64748B;
+}
+
+.sw-header {
+  background: rgba(7, 17, 31, 0.98);
+  border-bottom: 0;
+  color: #fff;
+}
+
+.sw-nav {
+  width: min(1280px, calc(100% - 48px));
+  min-height: 78px;
+}
+
+.sw-header .main-nav {
+  color: #fff;
+  gap: 22px;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+}
+
+.sw-header .main-nav a:hover,
+.sw-header .main-nav a[aria-current="page"] {
+  color: var(--sw-orange);
+}
+
+.sw-header .site-logo {
+  height: 58px;
+  max-width: 190px;
+  background: transparent;
+}
+
+.sw-header .btn {
+  border-radius: 999px;
+  min-height: 42px;
+  box-shadow: none;
+}
+
+.sw-header .btn-green {
+  background: var(--sw-orange);
+  border-color: var(--sw-orange);
+}
+
+.sw-header .btn-white {
+  color: var(--sw-navy);
+}
+
+.sw-header .mega-menu {
+  top: calc(100% + 24px);
+  border-top: 3px solid var(--sw-orange);
+}
+
+.sw-header .mega-menu a {
+  color: #111827;
+  text-transform: none;
+}
+
+.sw-hero {
+  position: relative;
+  min-height: 700px;
+  overflow: hidden;
+  color: #fff;
+  background: var(--sw-navy);
+}
+
+.sw-hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(7, 17, 31, 0.96) 0%, rgba(7, 17, 31, 0.78) 42%, rgba(7, 17, 31, 0.18) 100%),
+    linear-gradient(180deg, rgba(7, 17, 31, 0.05), rgba(7, 17, 31, 0.82)),
+    url("assets/hero/metal-recycling-yard.jpg") center right/cover no-repeat;
+}
+
+.sw-hero-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 78% 20%, rgba(249, 115, 22, 0.22), transparent 28%),
+    radial-gradient(circle at 10% 90%, rgba(255, 255, 255, 0.12), transparent 24%);
+}
+
+.sw-hero-grid {
+  position: relative;
+  z-index: 1;
+  min-height: 700px;
+  display: grid;
+  align-items: center;
+}
+
+.sw-hero-copy {
+  max-width: 760px;
+  padding: 70px 0;
+}
+
+.sw-kicker,
+.sw-section-title p {
+  margin: 0 0 10px;
+  color: var(--sw-orange);
+  font-size: 0.77rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.sw-hero h1 {
+  max-width: 760px;
+  margin: 0;
+  color: #fff;
+  font-size: clamp(2.75rem, 6vw, 5.35rem);
+  line-height: 0.98;
+  text-transform: uppercase;
+}
+
+.sw-hero h1 span {
+  display: block;
+  color: var(--sw-orange);
+}
+
+.sw-hero-copy > p:not(.sw-kicker) {
+  max-width: 670px;
+  margin: 22px 0 0;
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 1.06rem;
+  line-height: 1.75;
+}
+
+.sw-mini-trust {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 22px;
+  margin-top: 26px;
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.sw-mini-trust span {
+  position: relative;
+  padding-left: 22px;
+}
+
+.sw-mini-trust span::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.42em;
+  width: 10px;
+  height: 10px;
+  border: 2px solid var(--sw-orange);
+  border-radius: 50%;
+}
+
+.sw-hero-actions,
+.sw-final-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 30px;
+}
+
+.sw-btn-orange {
+  background: var(--sw-orange);
+  border-color: var(--sw-orange);
+  color: #fff;
+}
+
+.sw-btn-orange:hover {
+  background: var(--sw-orange-2);
+  border-color: var(--sw-orange-2);
+  color: #fff;
+}
+
+.sw-btn-dark {
+  background: rgba(15, 23, 42, 0.9);
+  border-color: rgba(255, 255, 255, 0.34);
+  color: #fff;
+}
+
+.sw-btn-dark:hover {
+  background: #fff;
+  border-color: #fff;
+  color: var(--sw-navy);
+}
+
+.sw-stats {
+  background: #07111F;
+  color: #fff;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.sw-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.sw-stats article {
+  display: grid;
+  place-items: center;
+  min-height: 118px;
+  padding: 18px;
+  text-align: center;
+  border-right: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.sw-stats article:last-child {
+  border-right: 0;
+}
+
+.sw-stats span {
+  color: #fff;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: clamp(2rem, 3vw, 3rem);
+  font-weight: 900;
+  line-height: 1;
+}
+
+.sw-stats p {
+  margin: 6px 0 0;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.sw-section {
+  padding: 76px 0;
+  background: #fff;
+}
+
+.sw-section-title {
+  max-width: 780px;
+  margin: 0 auto 34px;
+  text-align: center;
+}
+
+.sw-section-title.sw-left {
+  margin-inline: 0;
+  text-align: left;
+}
+
+.sw-section-title h2 {
+  color: var(--sw-text);
+  font-size: clamp(2rem, 4vw, 3.35rem);
+  line-height: 1.12;
+}
+
+.sw-service-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.sw-service-card {
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 18px;
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  background: #fff;
+  text-align: center;
+  box-shadow: 0 18px 46px rgba(15, 23, 42, 0.06);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.sw-service-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(249, 115, 22, 0.5);
+  box-shadow: 0 26px 60px rgba(15, 23, 42, 0.12);
+}
+
+.sw-service-card span,
+.sw-why-grid span,
+.sw-process-line span {
+  display: inline-grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  margin-bottom: 14px;
+  border-radius: 50%;
+  background: rgba(249, 115, 22, 0.12);
+  color: var(--sw-orange);
+  font-weight: 900;
+}
+
+.sw-service-card h3 {
+  color: var(--sw-text);
+  font-size: 1.03rem;
+}
+
+.sw-service-card p {
+  margin: 10px 0 0;
+  color: var(--sw-muted);
+  font-size: 0.84rem;
+  line-height: 1.55;
+}
+
+.sw-center-action {
+  display: flex;
+  justify-content: center;
+  margin-top: 28px;
+}
+
+.sw-about-band {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  background: #fff;
+  border-top: 1px solid rgba(15, 23, 42, 0.08);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.sw-about-image {
+  min-height: 520px;
+  background:
+    linear-gradient(180deg, rgba(15, 23, 42, 0.05), rgba(15, 23, 42, 0.15)),
+    url("assets/hero/iron-scrap-yard.jpg") center/cover no-repeat;
+}
+
+.sw-about-copy {
+  position: relative;
+  padding: clamp(36px, 6vw, 80px);
+}
+
+.sw-about-copy h2 {
+  max-width: 660px;
+  color: var(--sw-text);
+}
+
+.sw-about-copy > p:not(.sw-kicker) {
+  max-width: 760px;
+  color: var(--sw-muted);
+  line-height: 1.75;
+}
+
+.sw-checks {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px 20px;
+  margin: 24px 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sw-checks li {
+  position: relative;
+  padding-left: 26px;
+  color: var(--sw-text);
+  font-weight: 800;
+}
+
+.sw-checks li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.5em;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--sw-orange);
+}
+
+.sw-quote-box {
+  max-width: 330px;
+  padding: 24px;
+  background: var(--sw-navy);
+  color: #fff;
+  box-shadow: 0 24px 56px rgba(15, 23, 42, 0.16);
+}
+
+.sw-quote-box h3 {
+  color: #fff;
+}
+
+.sw-quote-box p {
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.9rem;
+}
+
+.sw-why,
+.sw-process,
+.sw-final-cta {
+  padding: 66px 0;
+  background:
+    linear-gradient(90deg, rgba(7, 17, 31, 0.96), rgba(15, 23, 42, 0.92)),
+    url("assets/hero/scrap-metal-pile.jpg") center/cover fixed;
+  color: #fff;
+}
+
+.sw-title-light h2 {
+  color: #fff;
+}
+
+.sw-why-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 1px;
+}
+
+.sw-why-grid article {
+  min-height: 130px;
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  padding: 18px;
+  border-right: 1px solid rgba(255, 255, 255, 0.16);
+  text-align: center;
+}
+
+.sw-why-grid h3 {
+  color: #fff;
+  font-size: 0.86rem;
+}
+
+.sw-material-grid {
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.sw-material-grid a {
+  display: block;
+  overflow: hidden;
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  background: #fff;
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.sw-material-grid a:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 24px 56px rgba(15, 23, 42, 0.14);
+}
+
+.sw-material-grid img {
+  width: 100%;
+  height: 98px;
+  object-fit: cover;
+}
+
+.sw-material-grid span {
+  display: block;
+  padding: 10px;
+  color: var(--sw-text);
+  font-size: 0.76rem;
+  font-weight: 900;
+  text-align: center;
+}
+
+.sw-split-section {
+  padding: 74px 0;
+  background: var(--sw-gray);
+}
+
+.sw-split-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 48px;
+}
+
+.sw-icon-grid,
+.sw-area-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.sw-icon-grid span,
+.sw-area-grid a {
+  min-height: 86px;
+  display: grid;
+  place-items: center;
+  padding: 12px;
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  background: #fff;
+  color: var(--sw-text);
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-align: center;
+  box-shadow: 0 14px 36px rgba(15, 23, 42, 0.05);
+}
+
+.sw-area-grid a {
+  min-height: 88px;
+  background:
+    linear-gradient(180deg, rgba(15, 23, 42, 0.35), rgba(15, 23, 42, 0.75)),
+    url("assets/hero/metal-recycling-yard.jpg") center/cover no-repeat;
+  color: #fff;
+}
+
+.sw-process-line {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0;
+  position: relative;
+}
+
+.sw-process-line::before {
+  content: "";
+  position: absolute;
+  top: 42px;
+  left: 12%;
+  right: 12%;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.24);
+}
+
+.sw-process-line article {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  padding: 18px;
+  text-align: center;
+}
+
+.sw-process-line span {
+  background: #fff;
+  color: var(--sw-orange);
+}
+
+.sw-process-line h3 {
+  color: #fff;
+  font-size: 0.94rem;
+}
+
+.sw-process-line p {
+  max-width: 210px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.74);
+  font-size: 0.82rem;
+  line-height: 1.55;
+}
+
+.sw-faq {
+  background: #fff;
+}
+
+.sw-faq-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.sw-faq-grid article {
+  padding: 28px;
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  background: var(--sw-gray);
+}
+
+.sw-faq-grid p {
+  color: var(--sw-muted);
+}
+
+.sw-final-cta {
+  padding: 38px 0;
+  background: var(--sw-navy);
+}
+
+.sw-final-grid {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.sw-final-grid h2 {
+  color: #fff;
+  font-size: clamp(1.55rem, 3vw, 2.35rem);
+}
+
+.sw-final-grid p {
+  margin: 8px 0 0;
+  color: rgba(255, 255, 255, 0.74);
+}
+
+.sw-final-actions {
+  margin: 0;
+}
+
+.sw-footer {
+  padding: 48px 0 18px;
+  background: #07111F;
+  color: #fff;
+}
+
+.sw-footer-grid {
+  display: grid;
+  grid-template-columns: 1.3fr repeat(3, 1fr);
+  gap: 34px;
+}
+
+.sw-footer .site-logo {
+  height: 58px;
+  margin-bottom: 14px;
+}
+
+.sw-footer p,
+.sw-footer a {
+  display: block;
+  margin: 0 0 8px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.86rem;
+}
+
+.sw-footer h3 {
+  margin-bottom: 14px;
+  color: #fff;
+  font-size: 0.98rem;
+}
+
+.sw-footer a:hover {
+  color: var(--sw-orange);
+}
+
+.sw-footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 28px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.56);
+  font-size: 0.78rem;
+}
+
+@media (max-width: 1100px) {
+  .sw-service-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .sw-material-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .sw-why-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .sw-split-grid,
+  .sw-about-band {
+    grid-template-columns: 1fr;
+  }
+
+  .sw-about-image {
+    min-height: 360px;
+  }
+}
+
+@media (max-width: 700px) {
+  .sw-header .nav-inner {
+    width: 100%;
+  }
+
+  .sw-header .site-logo {
+    height: 46px;
+    max-width: 108px;
+  }
+
+  .sw-header .menu-toggle {
+    color: var(--sw-navy);
+  }
+
+  .sw-header .main-nav.is-open {
+    inset: 72px 10px auto 10px;
+  }
+
+  .sw-hero,
+  .sw-hero-grid {
+    min-height: 560px;
+  }
+
+  .sw-hero-bg {
+    background:
+      linear-gradient(180deg, rgba(7, 17, 31, 0.92), rgba(7, 17, 31, 0.78)),
+      url("assets/hero/metal-recycling-yard.jpg") center/cover no-repeat;
+  }
+
+  .sw-hero-copy {
+    padding: 54px 0;
+  }
+
+  .sw-hero h1 {
+    font-size: clamp(2.25rem, 11vw, 3.35rem);
+    line-height: 1.02;
+  }
+
+  .sw-hero-copy > p:not(.sw-kicker) {
+    font-size: 0.94rem;
+    line-height: 1.65;
+  }
+
+  .sw-mini-trust {
+    gap: 10px;
+    font-size: 0.68rem;
+  }
+
+  .sw-hero-actions .btn,
+  .sw-final-actions .btn {
+    width: 100%;
+  }
+
+  .sw-stats-grid,
+  .sw-service-grid,
+  .sw-material-grid,
+  .sw-icon-grid,
+  .sw-area-grid,
+  .sw-process-line,
+  .sw-faq-grid,
+  .sw-footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sw-stats article {
+    min-height: 92px;
+    border-right: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .sw-section {
+    padding: 46px 0;
+  }
+
+  .sw-service-card {
+    min-height: 176px;
+  }
+
+  .sw-about-image {
+    min-height: 270px;
+  }
+
+  .sw-about-copy {
+    padding: 32px 18px;
+  }
+
+  .sw-checks {
+    grid-template-columns: 1fr;
+  }
+
+  .sw-quote-box {
+    max-width: none;
+  }
+
+  .sw-why-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .sw-why-grid article {
+    min-height: 110px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .sw-material-grid a {
+    display: grid;
+    grid-template-columns: 112px minmax(0, 1fr);
+    align-items: center;
+  }
+
+  .sw-material-grid img {
+    height: 86px;
+  }
+
+  .sw-split-section {
+    padding: 42px 0;
+  }
+
+  .sw-process-line::before {
+    display: none;
+  }
+
+  .sw-process-line article {
+    justify-items: start;
+    grid-template-columns: 52px minmax(0, 1fr);
+    text-align: left;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .sw-process-line span {
+    grid-row: span 2;
+    margin: 0;
+  }
+
+  .sw-process-line p {
+    max-width: none;
+  }
+
+  .sw-final-grid,
+  .sw-footer-bottom {
+    display: grid;
+  }
+}
