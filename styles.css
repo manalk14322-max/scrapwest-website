@@ -4473,6 +4473,227 @@ p {
   font-size: 0.78rem;
 }
 
+/* Closer ScrapWest reference layout refinements */
+.sw-header {
+  box-shadow: 0 10px 36px rgba(0, 0, 0, 0.2);
+}
+
+.sw-header .main-nav a[aria-current="page"]::after {
+  background: var(--sw-orange);
+}
+
+.sw-hero {
+  min-height: 660px;
+}
+
+.sw-hero-grid {
+  min-height: 660px;
+  align-items: center;
+}
+
+.sw-hero h1 {
+  max-width: 690px;
+  font-size: clamp(2.65rem, 5.25vw, 4.85rem);
+}
+
+.sw-stats {
+  position: relative;
+  z-index: 3;
+  width: min(1180px, calc(100% - 48px));
+  margin: -74px auto 0;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 6px;
+  background: rgba(7, 17, 31, 0.92);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(12px);
+}
+
+.sw-stats .container {
+  width: 100%;
+}
+
+.sw-stats-grid {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.sw-stats article {
+  min-height: 96px;
+}
+
+.sw-stats span {
+  color: #fff;
+  font-size: clamp(1.35rem, 2vw, 2.05rem);
+}
+
+.sw-services {
+  padding-top: 96px;
+}
+
+.sw-service-grid {
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.sw-service-card {
+  position: relative;
+  min-height: 285px;
+  display: block;
+  padding: 0 0 18px;
+  overflow: hidden;
+  text-align: left;
+}
+
+.sw-service-card img {
+  width: 100%;
+  height: 118px;
+  object-fit: cover;
+}
+
+.sw-service-card span {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  margin: -22px 0 14px 18px;
+  background: var(--sw-orange);
+  color: #fff;
+  box-shadow: 0 12px 26px rgba(249, 115, 22, 0.3);
+}
+
+.sw-service-card h3 {
+  padding: 0 18px;
+  font-size: 0.92rem;
+}
+
+.sw-service-card p {
+  padding: 0 18px;
+  font-size: 0.76rem;
+}
+
+.sw-about-image {
+  position: relative;
+}
+
+.sw-about-image::after {
+  content: "Licensed & eco friendly recycling";
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  max-width: 210px;
+  padding: 18px 20px;
+  background: rgba(15, 23, 42, 0.9);
+  border-left: 4px solid #16A34A;
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.sw-material-grid a {
+  border-radius: 7px;
+}
+
+.sw-area-grid a {
+  border-radius: 7px;
+}
+
+.sw-review-why {
+  padding: 46px 0;
+  background: #fff;
+}
+
+.sw-review-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.18fr) minmax(380px, 0.82fr);
+  gap: 22px;
+  align-items: stretch;
+}
+
+.sw-review-panel,
+.sw-dark-why-card {
+  padding: clamp(22px, 3vw, 34px);
+  border-radius: 8px;
+  box-shadow: 0 20px 52px rgba(15, 23, 42, 0.08);
+}
+
+.sw-review-panel {
+  background: #fff;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.sw-review-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.sw-review-cards article {
+  min-height: 170px;
+  padding: 22px;
+  background: #F8FAFC;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.sw-review-cards span {
+  color: var(--sw-orange);
+  font-family: Georgia, serif;
+  font-size: 3rem;
+  line-height: 0.6;
+}
+
+.sw-review-cards p {
+  color: #334155;
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+.sw-review-cards strong {
+  color: var(--sw-text);
+  font-size: 0.86rem;
+}
+
+.sw-dark-why-card {
+  background:
+    linear-gradient(135deg, rgba(15, 23, 42, 0.96), rgba(7, 17, 31, 0.98)),
+    url("assets/hero/scrap-metal-pile.jpg") center/cover;
+  color: #fff;
+}
+
+.sw-dark-why-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.sw-dark-why-grid span {
+  min-height: 92px;
+  display: grid;
+  place-items: center;
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: #fff;
+  font-size: 0.76rem;
+  font-weight: 800;
+  text-align: center;
+}
+
+.sw-map-card {
+  display: grid !important;
+  place-items: center;
+  min-height: 92px;
+  margin-top: 14px !important;
+  border-radius: 7px;
+  background:
+    linear-gradient(180deg, rgba(15, 23, 42, 0.15), rgba(15, 23, 42, 0.72)),
+    url("assets/hero/metal-recycling-yard.jpg") center/cover;
+  color: #fff !important;
+  font-weight: 900;
+}
+
+.sw-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
 @media (max-width: 1100px) {
   .sw-service-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -4637,5 +4858,40 @@ p {
   .sw-final-grid,
   .sw-footer-bottom {
     display: grid;
+  }
+
+  .sw-stats {
+    width: min(100% - 24px, 1180px);
+    margin-top: -42px;
+  }
+
+  .sw-stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sw-services {
+    padding-top: 64px;
+  }
+
+  .sw-service-card {
+    min-height: 0;
+  }
+
+  .sw-service-card img {
+    height: 150px;
+  }
+
+  .sw-review-grid,
+  .sw-review-cards,
+  .sw-dark-why-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sw-review-grid {
+    gap: 16px;
+  }
+
+  .sw-dark-why-grid span {
+    min-height: 58px;
   }
 }
