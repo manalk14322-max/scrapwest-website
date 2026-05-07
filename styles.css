@@ -6937,38 +6937,19 @@ body {
 }
 
 .sw-icon-grid span::before {
-  content: "";
-  position: absolute;
-  top: 16px;
-  left: 16px;
-  width: 42px;
-  height: 42px;
-  margin: 0;
-  border-radius: 12px;
-  background:
-    linear-gradient(135deg, rgba(249, 115, 22, 0.18), rgba(249, 115, 22, 0.02));
-  box-shadow: inset 0 0 0 1px rgba(249, 115, 22, 0.22);
+  content: none;
 }
 
 .sw-icon-grid span::after {
+  content: "";
   position: absolute;
-  top: 24px;
-  left: 26px;
-  z-index: 1;
-  color: var(--sw-orange);
-  font-size: 1.08rem;
-  font-weight: 900;
-  line-height: 1;
+  top: 0;
+  left: 18px;
+  right: 18px;
+  height: 4px;
+  border-radius: 0 0 999px 999px;
+  background: linear-gradient(90deg, #FF9D4D, #F97316);
 }
-
-.sw-icon-grid span:nth-child(1)::after { content: "B"; }
-.sw-icon-grid span:nth-child(2)::after { content: "F"; }
-.sw-icon-grid span:nth-child(3)::after { content: "W"; }
-.sw-icon-grid span:nth-child(4)::after { content: "M"; }
-.sw-icon-grid span:nth-child(5)::after { content: "C"; }
-.sw-icon-grid span:nth-child(6)::after { content: "O"; }
-.sw-icon-grid span:nth-child(7)::after { content: "D"; }
-.sw-icon-grid span:nth-child(8)::after { content: "I"; }
 
 .sw-icon-grid span:hover {
   transform: translateY(-8px);
@@ -6979,13 +6960,11 @@ body {
 }
 
 .sw-icon-grid span:hover::before {
-  background:
-    linear-gradient(135deg, #FF9D4D, #F97316);
-  box-shadow: 0 16px 34px rgba(249, 115, 22, 0.28);
+  content: none;
 }
 
 .sw-icon-grid span:hover::after {
-  color: #fff;
+  background: linear-gradient(90deg, #F97316, #FFB06A);
 }
 
 @media (max-width: 700px) {
@@ -6996,15 +6975,13 @@ body {
   }
 
   .sw-icon-grid span::before {
-    width: 36px;
-    height: 36px;
-    border-radius: 10px;
+    content: none;
   }
 
   .sw-icon-grid span::after {
-    top: 23px;
-    left: 25px;
-    font-size: 0.92rem;
+    top: 0;
+    left: 14px;
+    right: 14px;
   }
 }
 
