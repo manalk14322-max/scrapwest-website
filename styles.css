@@ -6967,6 +6967,64 @@ body {
   background: linear-gradient(90deg, #F97316, #FFB06A);
 }
 
+/* Move industries into its own lower compact section */
+.sw-split-grid {
+  grid-template-columns: 1fr;
+  gap: 42px;
+}
+
+#areas {
+  order: 1;
+}
+
+#industries {
+  order: 2;
+  margin-top: 14px;
+  padding: clamp(28px, 4vw, 42px);
+  border-radius: 16px;
+  background:
+    radial-gradient(circle at 88% 0%, rgba(249, 115, 22, 0.16), transparent 30%),
+    linear-gradient(135deg, #0A1521, #050B12);
+  box-shadow: 0 26px 72px rgba(5, 11, 18, 0.16);
+}
+
+#industries .sw-section-title {
+  margin-bottom: 24px;
+}
+
+#industries .sw-section-title p {
+  color: var(--sw-orange);
+}
+
+#industries .sw-section-title h2 {
+  max-width: 850px;
+  color: #fff;
+  font-size: clamp(1.75rem, 4vw, 3.2rem);
+}
+
+#industries .sw-icon-grid span {
+  min-height: 92px;
+  border-color: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.055);
+  color: #fff;
+  box-shadow: none;
+}
+
+#industries .sw-icon-grid span::after {
+  left: 14px;
+  right: auto;
+  width: 64px;
+}
+
+#industries .sw-icon-grid span:hover {
+  background: rgba(249, 115, 22, 0.14);
+  border-color: rgba(249, 115, 22, 0.42);
+}
+
+#areas .sw-section-title h2 {
+  font-size: clamp(2rem, 5vw, 4rem);
+}
+
 @media (max-width: 700px) {
   .sw-icon-grid span {
     min-height: 104px;
@@ -6982,6 +7040,19 @@ body {
     top: 0;
     left: 14px;
     right: 14px;
+  }
+
+  #industries {
+    padding: 24px 16px;
+    border-radius: 14px;
+  }
+
+  #industries .sw-section-title h2 {
+    font-size: clamp(1.5rem, 8vw, 2.4rem);
+  }
+
+  #areas .sw-section-title h2 {
+    font-size: clamp(1.75rem, 8vw, 2.8rem);
   }
 }
 
