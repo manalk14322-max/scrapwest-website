@@ -187,3 +187,164 @@ if (heroSlides.length > 1) {
     heroSlides[activeSlide].classList.add("is-active");
   }, 5000);
 }
+
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+document.documentElement.classList.add("js-ready");
+
+const header = document.querySelector(".site-header");
+const updateHeaderState = () => {
+  header?.classList.toggle("is-scrolled", window.scrollY > 24);
+};
+updateHeaderState();
+window.addEventListener("scroll", updateHeaderState, { passive: true });
+
+if (!prefersReducedMotion) {
+  const transitionLayer = document.createElement("div");
+  transitionLayer.className = "page-transition-layer";
+  document.body.appendChild(transitionLayer);
+  requestAnimationFrame(() => document.body.classList.add("page-ready"));
+
+  document.querySelectorAll("a[href]").forEach((link) => {
+    const href = link.getAttribute("href");
+    if (!href || href.startsWith("#") || href.startsWith("tel:") || href.startsWith("mailto:") || href.includes("wa.me") || link.target === "_blank") return;
+
+    link.addEventListener("click", (event) => {
+      const targetUrl = new URL(href, window.location.href);
+      if (targetUrl.origin !== window.location.origin) return;
+      event.preventDefault();
+      document.body.classList.add("page-leaving");
+      window.setTimeout(() => {
+        window.location.href = targetUrl.href;
+      }, 420);
+    });
+  });
+
+  const revealTargets = [
+    ".sw-section-title",
+    ".sw-service-card",
+    ".sw-about-image",
+    ".sw-about-copy",
+    ".sw-why-grid article",
+    ".sw-material-grid a",
+    ".sw-icon-grid article",
+    ".sw-area-grid a",
+    ".sw-process-line article",
+    ".sw-review-panel",
+    ".sw-dark-why-card",
+    ".sw-faq-grid article",
+    ".sw-final-cta",
+    ".sw-footer-grid > *",
+    ".service-detail-card",
+    ".service-shop-card",
+    ".article-layout > *",
+    ".quote-form",
+    ".contact-card"
+  ].join(",");
+
+  const revealItems = Array.from(document.querySelectorAll(revealTargets));
+  revealItems.forEach((item, index) => {
+    item.classList.add("motion-reveal");
+    item.style.setProperty("--motion-delay", `${Math.min(index % 8, 7) * 70}ms`);
+  });
+
+  const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add("is-visible");
+      observer.unobserve(entry.target);
+    });
+  }, { threshold: 0.16, rootMargin: "0px 0px -8% 0px" });
+
+  revealItems.forEach((item) => revealObserver.observe(item));
+
+  const counterObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      const valueNode = entry.target.querySelector("span");
+      if (!valueNode || valueNode.dataset.counted) return;
+      valueNode.dataset.counted = "true";
+
+      const raw = valueNode.textContent.trim();
+      const match = raw.match(/^(\d+)(.*)$/);
+      if (!match || raw.includes("/")) {
+        observer.unobserve(entry.target);
+        return;
+      }
+
+      const target = Number(match[1]);
+      const suffix = match[2] || "";
+      const start = performance.now();
+      const duration = 1200;
+
+      const tick = (now) => {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        valueNode.textContent = `${Math.round(target * eased)}${suffix}`;
+        if (progress < 1) requestAnimationFrame(tick);
+      };
+
+      requestAnimationFrame(tick);
+      observer.unobserve(entry.target);
+    });
+  }, { threshold: 0.45 });
+
+  document.querySelectorAll(".sw-stats article").forEach((item) => counterObserver.observe(item));
+
+  const hero = document.querySelector(".sw-hero");
+  const heroCopy = document.querySelector(".sw-hero-copy");
+  if (hero && heroCopy) {
+    hero.addEventListener("pointermove", (event) => {
+      if (window.innerWidth < 900) return;
+      const rect = hero.getBoundingClientRect();
+      const x = (event.clientX - rect.left) / rect.width - 0.5;
+      const y = (event.clientY - rect.top) / rect.height - 0.5;
+      hero.style.setProperty("--hero-x", `${x * 18}px`);
+      hero.style.setProperty("--hero-y", `${y * 18}px`);
+      heroCopy.style.transform = `translate3d(${x * -10}px, ${y * -8}px, 0)`;
+    });
+
+    hero.addEventListener("pointerleave", () => {
+      hero.style.setProperty("--hero-x", "0px");
+      hero.style.setProperty("--hero-y", "0px");
+      heroCopy.style.transform = "";
+    });
+  }
+
+  document.querySelectorAll(".btn, .floating-whatsapp").forEach((button) => {
+    button.addEventListener("pointermove", (event) => {
+      if (window.innerWidth < 900) return;
+      const rect = button.getBoundingClientRect();
+      const x = event.clientX - rect.left - rect.width / 2;
+      const y = event.clientY - rect.top - rect.height / 2;
+      button.style.transform = `translate(${x * 0.08}px, ${y * 0.12}px)`;
+    });
+
+    button.addEventListener("pointerleave", () => {
+      button.style.transform = "";
+    });
+  });
+
+  if (window.matchMedia("(pointer: fine)").matches) {
+    const cursorGlow = document.createElement("div");
+    cursorGlow.className = "cursor-glow";
+    document.body.appendChild(cursorGlow);
+    window.addEventListener("pointermove", (event) => {
+      cursorGlow.style.transform = `translate3d(${event.clientX}px, ${event.clientY}px, 0)`;
+    }, { passive: true });
+  }
+}
+
+if (!document.querySelector(".hero-particles") && document.querySelector(".sw-hero")) {
+  const particles = document.createElement("div");
+  particles.className = "hero-particles";
+  particles.setAttribute("aria-hidden", "true");
+  for (let index = 0; index < 24; index += 1) {
+    const particle = document.createElement("span");
+    particle.style.setProperty("--x", `${Math.random() * 100}%`);
+    particle.style.setProperty("--y", `${Math.random() * 100}%`);
+    particle.style.setProperty("--d", `${4 + Math.random() * 9}s`);
+    particle.style.setProperty("--s", `${2 + Math.random() * 4}px`);
+    particles.appendChild(particle);
+  }
+  document.querySelector(".sw-hero")?.appendChild(particles);
+}
