@@ -5601,3 +5601,239 @@ body {
     min-height: 58px;
   }
 }
+
+/* Premium muted ScrapWest theme refresh */
+:root {
+  --blue: #0A3442;
+  --green: #C9A24A;
+  --dark: #07151D;
+  --ink: #121820;
+  --muted: #5E6B72;
+  --soft: #F3F6F4;
+  --panel-soft: #F8FAF8;
+  --sw-navy: #07151D;
+  --sw-navy-2: #0B2230;
+  --sw-navy-3: #123241;
+  --sw-orange: #C9A24A;
+  --sw-orange-2: #A97C2D;
+  --sw-green: #1F8A5B;
+  --sw-gray: #F2F6F4;
+  --sw-text: #121820;
+  --sw-muted: #607079;
+  --sw-line: rgba(7, 21, 29, 0.12);
+  --sw-shadow: 0 22px 58px rgba(7, 21, 29, 0.12);
+  --sw-shadow-strong: 0 36px 90px rgba(7, 21, 29, 0.24);
+}
+
+body {
+  background:
+    radial-gradient(circle at 8% 8%, rgba(201, 162, 74, 0.08), transparent 30%),
+    radial-gradient(circle at 95% 24%, rgba(31, 138, 91, 0.08), transparent 28%),
+    linear-gradient(180deg, #f8faf8 0%, #eef4f2 52%, #f8faf8 100%);
+}
+
+.sw-header,
+.site-header {
+  background: rgba(7, 21, 29, 0.96);
+  border-bottom-color: rgba(201, 162, 74, 0.9);
+  box-shadow: 0 18px 40px rgba(7, 21, 29, 0.22);
+}
+
+.sw-header .brand,
+.sw-header .main-nav,
+.sw-header .menu-toggle,
+.site-header .brand,
+.site-header .main-nav {
+  color: #fff;
+}
+
+.sw-header .main-nav a,
+.site-header .main-nav a {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.sw-header .main-nav a:hover,
+.sw-header .main-nav a[aria-current="page"],
+.site-header .main-nav a:hover,
+.site-header .main-nav a[aria-current="page"] {
+  color: var(--sw-orange);
+}
+
+.sw-header .main-nav a[aria-current="page"]::after,
+.site-header .main-nav a[aria-current="page"]::after {
+  background: linear-gradient(90deg, var(--sw-orange), #F1D99A);
+}
+
+.sw-header .btn-white,
+.header-actions .btn-outline {
+  background: rgba(255, 255, 255, 0.96);
+  color: var(--sw-navy);
+  border-color: rgba(255, 255, 255, 0.72);
+}
+
+.sw-header .btn-green,
+.header-actions .btn-green {
+  background: var(--sw-green);
+  border-color: var(--sw-green);
+  color: #fff;
+}
+
+.sw-header .btn-green:hover,
+.header-actions .btn-green:hover {
+  background: #176d49;
+  border-color: #176d49;
+}
+
+.mega-menu {
+  background: rgba(255, 255, 255, 0.98);
+  border-top-color: var(--sw-orange);
+  box-shadow: 0 30px 70px rgba(7, 21, 29, 0.24);
+}
+
+.mega-menu a:hover,
+.mega-menu a:focus {
+  background: #f4efe3;
+  color: var(--sw-navy);
+}
+
+.sw-hero,
+.sw-service-hero-detail,
+.sw-final-cta,
+.sw-process,
+.sw-footer,
+.contact-footer {
+  background-color: var(--sw-navy);
+}
+
+.sw-hero-bg::after,
+.sw-service-hero-bg::after {
+  background:
+    linear-gradient(90deg, rgba(7, 21, 29, 0.96) 0%, rgba(7, 21, 29, 0.82) 43%, rgba(7, 21, 29, 0.22) 78%),
+    radial-gradient(circle at 72% 28%, rgba(201, 162, 74, 0.24), transparent 30%);
+}
+
+.sw-hero h1 span,
+.sw-kicker,
+.sw-section .eyebrow,
+.sw-service-hero-copy h1::first-line {
+  color: var(--sw-orange);
+}
+
+.sw-btn-orange,
+.btn-gold {
+  background: linear-gradient(135deg, #D8B965 0%, var(--sw-orange) 52%, var(--sw-orange-2) 100%);
+  border-color: transparent;
+  color: #101820;
+  box-shadow: 0 16px 34px rgba(169, 124, 45, 0.26);
+}
+
+.sw-btn-orange:hover,
+.btn-gold:hover {
+  background: linear-gradient(135deg, #E6CA7C 0%, #BE9140 100%);
+  color: #07151D;
+  box-shadow: 0 22px 46px rgba(169, 124, 45, 0.34);
+}
+
+.sw-btn-dark {
+  background: rgba(7, 21, 29, 0.84);
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+.sw-btn-dark:hover {
+  background: #fff;
+  color: var(--sw-navy);
+}
+
+.sw-service-card,
+.sw-material-grid a,
+.sw-area-grid a,
+.sw-review-panel,
+.sw-dark-why-card,
+.sw-card,
+.service-detail-card,
+.buyers-list-card,
+.service-shop-card {
+  border-color: rgba(7, 21, 29, 0.1);
+  box-shadow: 0 18px 48px rgba(7, 21, 29, 0.08);
+}
+
+.sw-service-card:hover,
+.sw-material-grid a:hover,
+.sw-area-grid a:hover,
+.service-detail-card:hover,
+.service-shop-card:hover {
+  border-color: rgba(201, 162, 74, 0.54);
+  box-shadow: 0 28px 68px rgba(7, 21, 29, 0.14);
+}
+
+.sw-service-card span,
+.sw-stats article::before,
+.sw-process-line span,
+.sw-final-cta .btn:first-child,
+.floating-whatsapp,
+.top-link {
+  background: linear-gradient(135deg, #D8B965, var(--sw-orange-2));
+  color: #07151D;
+}
+
+.floating-whatsapp {
+  color: #fff;
+  background: linear-gradient(135deg, #1F8A5B, #176D49);
+  box-shadow: 0 22px 54px rgba(31, 138, 91, 0.34);
+}
+
+.sw-stats {
+  border: 1px solid rgba(201, 162, 74, 0.22);
+  background: linear-gradient(180deg, rgba(9, 30, 41, 0.98), rgba(5, 14, 20, 0.98));
+}
+
+.sw-dark-band,
+.sw-process {
+  background:
+    linear-gradient(135deg, rgba(7, 21, 29, 0.96), rgba(11, 34, 48, 0.96)),
+    url("assets/hero/scrap-metal-pile.jpg") center/cover fixed;
+}
+
+.sw-dark-why-card,
+.sw-quote-box {
+  background:
+    linear-gradient(135deg, rgba(7, 21, 29, 0.94), rgba(11, 34, 48, 0.96)),
+    url("assets/hero/scrap-metal-pile.jpg") center/cover;
+}
+
+.sw-checks li::before,
+.sw-faq-grid summary::marker,
+.sw-footer a:hover,
+.contact-footer a:hover {
+  color: var(--sw-orange);
+}
+
+.sw-footer {
+  background:
+    radial-gradient(circle at 78% 0%, rgba(201, 162, 74, 0.16), transparent 34%),
+    linear-gradient(180deg, #07151D 0%, #040A0E 100%);
+}
+
+@media (max-width: 700px) {
+  .sw-header {
+    background: rgba(255, 255, 255, 0.98);
+  }
+
+  .sw-header .brand,
+  .sw-header .menu-toggle {
+    color: var(--sw-navy);
+  }
+
+  .sw-header .main-nav.is-open {
+    background: rgba(7, 21, 29, 0.98);
+    border-color: rgba(201, 162, 74, 0.34);
+  }
+
+  .sw-header .main-nav.is-open a {
+    color: #fff;
+  }
+
+  .sw-header .main-nav.is-open a:hover {
+    color: var(--sw-orange);
+  }
+}
