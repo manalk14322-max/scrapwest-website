@@ -6610,6 +6610,168 @@ body {
   }
 }
 
+/* Final chosen theme: premium dark navy + orange conversion palette */
+:root {
+  --sw-navy: #050B12;
+  --sw-navy-2: #0A1521;
+  --sw-navy-3: #111827;
+  --sw-orange: #F97316;
+  --sw-orange-2: #D95F0B;
+  --sw-green: #16A34A;
+  --sw-green-2: #12843D;
+  --sw-gray: #F5F7F8;
+  --sw-text: #111827;
+  --sw-muted: #64717C;
+  --green: #F97316;
+  --blue: #073047;
+  --dark: #050B12;
+}
+
+body {
+  background:
+    radial-gradient(circle at 10% 0%, rgba(249, 115, 22, 0.08), transparent 28%),
+    radial-gradient(circle at 92% 14%, rgba(22, 163, 74, 0.07), transparent 28%),
+    linear-gradient(180deg, #050B12 0%, #0A1521 18%, #F5F7F8 18%, #F5F7F8 100%);
+}
+
+.sw-header,
+.site-header,
+.sw-header.is-scrolled,
+.site-header.is-scrolled {
+  background: rgba(5, 11, 18, 0.96);
+  border-bottom-color: rgba(249, 115, 22, 0.86);
+  box-shadow: 0 18px 48px rgba(5, 11, 18, 0.32);
+}
+
+.sw-header .main-nav a:hover,
+.sw-header .main-nav a[aria-current="page"],
+.site-header .main-nav a:hover,
+.site-header .main-nav a[aria-current="page"],
+.sw-kicker,
+.sw-section .eyebrow,
+.sw-hero h1 span,
+.sw-service-hero-copy h1::first-line,
+.sw-footer a:hover,
+.contact-footer a:hover {
+  color: var(--sw-orange);
+}
+
+.sw-header .main-nav a[aria-current="page"]::after,
+.site-header .main-nav a[aria-current="page"]::after {
+  background: linear-gradient(90deg, #F97316, #FDBA74);
+}
+
+.sw-btn-orange,
+.btn-gold,
+.sw-final-actions .btn:first-child,
+.sw-service-card span,
+.sw-process-line span,
+.sw-stats article::before,
+.top-link {
+  background: linear-gradient(135deg, #FF9D4D 0%, #F97316 48%, #C64808 100%);
+  border-color: transparent;
+  color: #fff;
+  box-shadow: 0 16px 38px rgba(249, 115, 22, 0.28);
+}
+
+.sw-btn-orange:hover,
+.btn-gold:hover,
+.sw-final-actions .btn:first-child:hover {
+  background: linear-gradient(135deg, #FFB06A 0%, #F97316 100%);
+  color: #fff;
+  box-shadow: 0 24px 58px rgba(249, 115, 22, 0.42);
+}
+
+.sw-header .btn-green,
+.header-actions .btn-green,
+.floating-whatsapp,
+.sw-quote-box .btn,
+.sw-final-actions .btn:last-child {
+  background: linear-gradient(135deg, #16A34A, #12843D);
+  border-color: transparent;
+  color: #fff;
+  box-shadow: 0 18px 42px rgba(22, 163, 74, 0.28);
+}
+
+.sw-header .btn-green:hover,
+.header-actions .btn-green:hover,
+.floating-whatsapp:hover,
+.sw-final-actions .btn:last-child:hover {
+  background: linear-gradient(135deg, #22C55E, #12843D);
+  color: #fff;
+  box-shadow: 0 22px 56px rgba(22, 163, 74, 0.42);
+}
+
+.sw-hero-bg::after,
+.sw-service-hero-bg::after {
+  background:
+    linear-gradient(90deg, rgba(5, 11, 18, 0.96) 0%, rgba(5, 11, 18, 0.8) 45%, rgba(5, 11, 18, 0.2) 82%),
+    radial-gradient(circle at 74% 28%, rgba(249, 115, 22, 0.24), transparent 30%),
+    linear-gradient(180deg, rgba(5, 11, 18, 0.18), rgba(5, 11, 18, 0.76));
+}
+
+.sw-hero::before {
+  background:
+    linear-gradient(115deg, transparent 0 44%, rgba(249, 115, 22, 0.14) 52%, transparent 63%),
+    radial-gradient(circle at 24% 70%, rgba(22, 163, 74, 0.12), transparent 30%);
+}
+
+.sw-stats,
+.sw-process,
+.sw-final-cta,
+.sw-footer,
+.contact-footer {
+  background:
+    radial-gradient(circle at 78% 0%, rgba(249, 115, 22, 0.14), transparent 33%),
+    linear-gradient(180deg, #0A1521 0%, #050B12 100%);
+}
+
+.sw-stats {
+  border-color: rgba(249, 115, 22, 0.28);
+}
+
+.sw-service-card:hover,
+.sw-material-grid a:hover,
+.sw-material-track a:hover,
+.sw-area-grid a:hover,
+.sw-icon-grid article:hover,
+.service-detail-card:hover,
+.service-shop-card:hover {
+  border-color: rgba(249, 115, 22, 0.7);
+  box-shadow: 0 30px 76px rgba(5, 11, 18, 0.16), 0 0 0 1px rgba(249, 115, 22, 0.14);
+}
+
+.sw-process-line::before {
+  background: linear-gradient(90deg, transparent, rgba(249, 115, 22, 0.9), transparent);
+}
+
+.hero-particles span {
+  background: rgba(255, 157, 77, 0.74);
+  box-shadow: 0 0 18px rgba(249, 115, 22, 0.64);
+}
+
+.cursor-glow {
+  background: rgba(249, 115, 22, 0.16);
+  box-shadow: 0 0 46px rgba(249, 115, 22, 0.32);
+}
+
+.sw-about-band,
+.sw-review-why,
+.sw-section,
+.sw-split-section {
+  background-color: #F5F7F8;
+}
+
+.mega-menu {
+  border-top-color: var(--sw-orange);
+}
+
+.mega-menu a:hover,
+.mega-menu a:focus {
+  background: #FFF1E8;
+  color: #050B12;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
