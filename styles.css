@@ -7131,48 +7131,66 @@ body {
 .sw-social-strip {
   position: relative;
   z-index: 50;
-  background: #FF243F;
+  background:
+    linear-gradient(90deg, rgba(5, 11, 18, 0.98), rgba(10, 21, 33, 0.98));
+  border-bottom: 1px solid rgba(249, 115, 22, 0.22);
   color: #fff;
 }
 
 .sw-social-strip-inner {
-  min-height: 52px;
+  min-height: 38px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 28px;
+  gap: 22px;
 }
 
 .sw-social-email {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   color: #fff;
-  font-size: clamp(1rem, 2vw, 1.35rem);
-  font-weight: 700;
+  font-size: clamp(0.82rem, 1.2vw, 0.96rem);
+  font-weight: 800;
 }
 
 .sw-social-email::before {
-  content: "✉";
-  font-size: 1.2em;
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--sw-orange);
+  box-shadow: 0 0 14px rgba(249, 115, 22, 0.55);
+  flex: 0 0 auto;
+}
+
+.sw-social-email::after {
+  content: "Official contact";
+  margin-left: 6px;
+  color: rgba(255, 255, 255, 0.54);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
   line-height: 1;
 }
 
 .sw-social-links {
   display: inline-flex;
   align-items: center;
-  gap: 18px;
+  gap: 8px;
 }
 
 .sw-social-links a {
   display: grid;
   place-items: center;
-  width: 32px;
-  height: 32px;
+  width: 28px;
+  height: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 50%;
   color: #fff;
   font-family: Arial, sans-serif;
-  font-size: 1.35rem;
+  font-size: 0.92rem;
   font-weight: 900;
   line-height: 1;
   transition: transform 0.25s ease, background 0.25s ease;
@@ -7181,18 +7199,23 @@ body {
 .sw-social-links a:hover,
 .sw-social-links a:focus {
   transform: translateY(-3px) scale(1.06);
-  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(249, 115, 22, 0.56);
+  background: rgba(249, 115, 22, 0.16);
 }
 
 @media (max-width: 700px) {
   .sw-social-strip-inner {
-    min-height: 48px;
+    min-height: 38px;
     justify-content: space-between;
     gap: 12px;
   }
 
   .sw-social-email {
-    font-size: 0.9rem;
+    font-size: 0.78rem;
+  }
+
+  .sw-social-email::after {
+    display: none;
   }
 
   .sw-social-links {
@@ -7200,9 +7223,9 @@ body {
   }
 
   .sw-social-links a {
-    width: 30px;
-    height: 30px;
-    font-size: 1.05rem;
+    width: 26px;
+    height: 26px;
+    font-size: 0.84rem;
   }
 }
 
