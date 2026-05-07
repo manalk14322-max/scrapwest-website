@@ -1,0 +1,14 @@
+{
+  "name": "scrapwest-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "ScrapWest UAE static website with Vercel quote API.",
+  "scripts": {
+    "start": "node -e \"console.log('Static site with Vercel serverless API')\"",
+    "lint": "node -e \"console.log('Static site: no lint configured')\""
+  },
+  "dependencies": {
+    "formidable": "^3.5.4",
+    "nodemailer": "^8.0.7"
+  }
+}

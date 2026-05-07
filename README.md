@@ -47,3 +47,26 @@ After deploying the backend, add this before `script.js` on pages with forms:
 - Update phone, email and WhatsApp number if the final business contact changes.
 - `sitemap.xml` and `robots.txt` are included for SEO deployment.
 - GitHub Pages can host the frontend, but backend needs Render, Railway, Vercel serverless or another Node hosting service.
+
+## Recommended Professional Deployment
+
+For a UAE/Dubai business website, use Vercel for the website and the included `/api/quote` serverless backend.
+
+1. Import this GitHub repository into Vercel.
+2. Add GoDaddy domain `scrapwest.ae` in Vercel project settings.
+3. Add these environment variables in Vercel:
+
+```txt
+ALLOWED_ORIGINS=https://scrapwest.ae,https://www.scrapwest.ae,https://manalk14322-max.github.io
+PUBLIC_SITE_URL=https://scrapwest.ae
+WHATSAPP_NUMBER=971501988684
+LEAD_EMAIL_TO=info@scrapwest.ae
+SMTP_HOST=
+SMTP_PORT=587
+SMTP_SECURE=false
+SMTP_USER=
+SMTP_PASS=
+MAIL_FROM=ScrapWest Website <noreply@scrapwest.ae>
+```
+
+If SMTP is not configured, the form still opens WhatsApp. With SMTP configured, every quote request is emailed to ScrapWest.
