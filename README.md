@@ -59,7 +59,7 @@ For a UAE/Dubai business website, use Vercel for the website and the included `/
 ```txt
 ALLOWED_ORIGINS=https://scrapwest.ae,https://www.scrapwest.ae,https://manalk14322-max.github.io
 PUBLIC_SITE_URL=https://scrapwest.ae
-WHATSAPP_NUMBER=971501988684
+WHATSAPP_NUMBER=971523181007
 LEAD_EMAIL_TO=info@scrapwest.ae
 SMTP_HOST=
 SMTP_PORT=587

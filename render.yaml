@@ -9,4 +9,4 @@ services:
       - key: NODE_ENV
         value: production
       - key: WHATSAPP_NUMBER
-        value: 971501988684
+        value: 971523181007

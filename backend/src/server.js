@@ -70,7 +70,7 @@ function cleanText(value, max = 300) {
 }
 
 function makeWhatsAppLink(lead) {
-  const number = process.env.WHATSAPP_NUMBER || "971501988684";
+  const number = process.env.WHATSAPP_NUMBER || "971523181007";
   const message = [
     "Hi, I want to sell scrap. Please share your best price.",
     `Name: ${lead.name || "-"}`,

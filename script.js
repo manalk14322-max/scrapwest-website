@@ -148,7 +148,7 @@ document.querySelectorAll(".quote-form").forEach((form) => {
       fileNote
     ].join("\n");
 
-    const fallbackWhatsApp = `https://wa.me/971501988684?text=${encodeURIComponent(message)}`;
+    const fallbackWhatsApp = `https://wa.me/971523181007?text=${encodeURIComponent(message)}`;
     const hasSameOriginApi = window.location.protocol.startsWith("http") && !window.location.hostname.includes("github.io");
     const defaultApiBase = hasSameOriginApi ? window.location.origin : "";
     const apiBase = String(window.SCRAPWEST_API_URL || form.dataset.apiUrl || defaultApiBase).replace(/\/$/, "");

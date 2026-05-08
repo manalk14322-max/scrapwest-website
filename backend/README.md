@@ -45,7 +45,7 @@ Use Render or Railway for the backend, and keep the static website on GitHub Pag
 Important environment variables:
 
 - `ALLOWED_ORIGINS=https://scrapwest.ae,https://www.scrapwest.ae,https://manalk14322-max.github.io`
-- `WHATSAPP_NUMBER=971501988684`
+- `WHATSAPP_NUMBER=971523181007`
 - `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS`
 - `LEAD_EMAIL_TO=info@scrapwest.ae`
 
