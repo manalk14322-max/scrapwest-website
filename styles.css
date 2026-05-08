@@ -5179,6 +5179,22 @@ body {
   font-size: 0.78rem;
 }
 
+.sw-powered-by {
+  color: rgba(255, 255, 255, 0.68);
+}
+
+.sw-powered-by a {
+  color: var(--sw-orange);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.sw-powered-by a:hover {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
 /* Closer ScrapWest reference layout refinements */
 .sw-header {
   box-shadow: 0 10px 36px rgba(0, 0, 0, 0.2);
