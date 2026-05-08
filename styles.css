@@ -5181,18 +5181,30 @@ body {
 
 .sw-powered-by {
   color: rgba(255, 255, 255, 0.68);
+  white-space: nowrap;
 }
 
 .sw-powered-by a {
-  color: var(--sw-orange);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 34px;
+  min-height: 28px;
+  padding: 3px 10px;
+  border: 1px solid rgba(249, 115, 22, 0.45);
+  border-radius: 999px;
+  color: #fff;
+  background: rgba(249, 115, 22, 0.16);
   font-weight: 800;
   text-decoration: none;
+  letter-spacing: 0.04em;
 }
 
 .sw-powered-by a:hover {
+  background: var(--sw-orange);
+  border-color: var(--sw-orange);
   color: #fff;
-  text-decoration: underline;
-  text-underline-offset: 4px;
+  text-decoration: none;
 }
 
 /* Closer ScrapWest reference layout refinements */
