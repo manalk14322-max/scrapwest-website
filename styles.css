@@ -4867,8 +4867,8 @@ body {
 .sw-about-image {
   min-height: 520px;
   background:
-    linear-gradient(180deg, rgba(15, 23, 42, 0.05), rgba(15, 23, 42, 0.15)),
-    url("assets/hero/iron-scrap-yard.jpg") center/cover no-repeat;
+    linear-gradient(180deg, rgba(15, 23, 42, 0.02), rgba(15, 23, 42, 0.18)),
+    url("assets/hero/metal-recycling-yard.jpg") center/cover no-repeat;
 }
 
 .sw-about-copy {
