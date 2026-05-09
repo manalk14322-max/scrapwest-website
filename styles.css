@@ -7407,3 +7407,100 @@ body {
     transform: none;
   }
 }
+
+.floating-actions {
+  position: fixed;
+  right: 18px;
+  bottom: 24px;
+  z-index: 60;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  background: rgba(6, 16, 23, 0.88);
+  box-shadow: 0 22px 62px rgba(6, 16, 23, 0.34);
+  backdrop-filter: blur(14px);
+}
+
+.floating-actions .floating-whatsapp,
+.floating-actions .floating-call {
+  position: relative;
+  right: auto;
+  bottom: auto;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  min-width: 128px;
+  padding: 0 18px;
+  border-radius: 999px;
+  color: #fff;
+  font-weight: 900;
+  line-height: 1;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.floating-actions .floating-call {
+  background: linear-gradient(135deg, #FF8A2B, #F97316 55%, #C64808);
+  box-shadow: 0 16px 34px rgba(249, 115, 22, 0.32);
+}
+
+.floating-actions .floating-whatsapp {
+  animation: whatsappPulse 2.4s ease-in-out infinite;
+  background: linear-gradient(135deg, #16A34A, #12843D);
+  box-shadow: 0 16px 34px rgba(22, 163, 74, 0.3);
+}
+
+.floating-actions .floating-call:hover,
+.floating-actions .floating-whatsapp:hover {
+  transform: translateY(-2px);
+}
+
+.floating-actions .floating-call:hover {
+  box-shadow: 0 20px 44px rgba(249, 115, 22, 0.42);
+}
+
+.floating-actions .floating-whatsapp:hover {
+  box-shadow: 0 20px 44px rgba(22, 163, 74, 0.4);
+}
+
+.floating-actions .floating-call::before,
+.floating-actions .floating-whatsapp::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  background: linear-gradient(120deg, transparent 0 34%, rgba(255, 255, 255, 0.34) 50%, transparent 66%);
+  transform: translateX(-130%);
+  transition: transform 0.58s ease;
+}
+
+.floating-actions .floating-call:hover::before,
+.floating-actions .floating-whatsapp:hover::before {
+  transform: translateX(130%);
+}
+
+@media (max-width: 700px) {
+  .floating-actions {
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    gap: 8px;
+    padding: 7px;
+  }
+
+  .floating-actions .floating-call,
+  .floating-actions .floating-whatsapp {
+    flex: 1;
+    min-width: 0;
+    min-height: 46px;
+    padding: 0 12px;
+    font-size: 0.82rem;
+  }
+}
