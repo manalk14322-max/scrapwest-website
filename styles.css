@@ -7504,3 +7504,175 @@ body {
     font-size: 0.82rem;
   }
 }
+
+/* Split floating contact actions: call left, WhatsApp right. */
+.floating-actions {
+  position: static;
+  inset: auto;
+  display: contents;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+.floating-actions .floating-call {
+  position: fixed;
+  left: 22px;
+  bottom: 24px;
+  z-index: 70;
+  min-width: 0;
+  min-height: 0;
+  width: auto;
+  height: auto;
+  padding: 8px 12px;
+  border-radius: 3px;
+  background: rgba(36, 36, 36, 0.82);
+  color: #fff;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+  font-size: 0.92rem;
+  line-height: 1;
+  transform: translateX(86px);
+}
+
+.floating-actions .floating-call::before {
+  content: "";
+  position: absolute;
+  left: -86px;
+  top: 50%;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #E84800;
+  box-shadow: 0 12px 28px rgba(232, 72, 0, 0.34);
+  transform: translateY(-50%);
+}
+
+.floating-actions .floating-call::after {
+  content: "\260E";
+  position: absolute;
+  left: -66px;
+  top: 50%;
+  color: #fff;
+  font-size: 2rem;
+  line-height: 1;
+  transform: translateY(-50%) rotate(-8deg);
+}
+
+.floating-actions .floating-call:hover {
+  transform: translateX(86px) translateY(-2px);
+  background: rgba(20, 20, 20, 0.92);
+}
+
+.floating-actions .floating-call:hover::before {
+  transform: translateY(-50%);
+}
+
+.floating-actions .floating-call:hover::after {
+  transform: translateY(-50%) rotate(-8deg);
+}
+
+.floating-actions .floating-whatsapp {
+  position: fixed;
+  right: 22px;
+  bottom: 24px;
+  z-index: 70;
+  min-width: 210px;
+  min-height: 54px;
+  padding: 0 28px 0 62px;
+  border-radius: 999px;
+  background: #22D464;
+  color: #fff;
+  box-shadow: 0 16px 36px rgba(34, 212, 100, 0.28);
+  font-size: 1rem;
+}
+
+.floating-actions .floating-whatsapp::before {
+  content: "";
+  position: absolute;
+  left: 26px;
+  top: 50%;
+  width: 26px;
+  height: 26px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: transparent;
+  transform: translateY(-50%);
+}
+
+.floating-actions .floating-whatsapp::after {
+  content: "";
+  position: absolute;
+  left: 31px;
+  top: 50%;
+  width: 13px;
+  height: 8px;
+  border-left: 3px solid #fff;
+  border-bottom: 3px solid #fff;
+  transform: translateY(-44%) rotate(-50deg);
+}
+
+.floating-actions .floating-whatsapp:hover {
+  transform: translateY(-2px);
+  background: #18BE55;
+}
+
+.floating-actions .floating-whatsapp:hover::before {
+  transform: translateY(-50%);
+}
+
+.floating-actions .floating-whatsapp:hover::after {
+  transform: translateY(-44%) rotate(-50deg);
+}
+
+@media (max-width: 700px) {
+  .floating-actions {
+    display: contents;
+  }
+
+  .floating-actions .floating-call {
+    left: 16px;
+    bottom: 18px;
+    padding: 7px 10px;
+    font-size: 0.78rem;
+    transform: translateX(68px);
+  }
+
+  .floating-actions .floating-call::before {
+    left: -68px;
+    width: 54px;
+    height: 54px;
+  }
+
+  .floating-actions .floating-call::after {
+    left: -51px;
+    font-size: 1.55rem;
+  }
+
+  .floating-actions .floating-call:hover {
+    transform: translateX(68px) translateY(-2px);
+  }
+
+  .floating-actions .floating-whatsapp {
+    right: 12px;
+    bottom: 18px;
+    min-width: 138px;
+    min-height: 48px;
+    padding: 0 18px 0 48px;
+    font-size: 0.82rem;
+  }
+
+  .floating-actions .floating-whatsapp::before {
+    left: 18px;
+    width: 22px;
+    height: 22px;
+  }
+
+  .floating-actions .floating-whatsapp::after {
+    left: 23px;
+    width: 11px;
+    height: 7px;
+  }
+}
