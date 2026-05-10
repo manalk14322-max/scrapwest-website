@@ -42,7 +42,9 @@ const applyGoogleLanguage = (language, attempt = 0) => {
 
 const buildLanguageSwitcher = () => {
   const nav = document.querySelector(".sw-nav") || document.querySelector(".nav-inner");
-  if (!nav || document.querySelector(".sw-language-switcher")) return;
+  const socialStrip = document.querySelector(".sw-social-strip-inner");
+  const target = socialStrip || nav;
+  if (!target || document.querySelector(".sw-language-switcher")) return;
 
   const savedLanguage = window.localStorage.getItem("scrapwestLanguage") || "en";
   const wrapper = document.createElement("label");
@@ -60,8 +62,12 @@ const buildLanguageSwitcher = () => {
   setPageDirection(select.value);
   select.addEventListener("change", () => applyGoogleLanguage(select.value));
 
-  const actions = nav.querySelector(".header-actions");
-  nav.insertBefore(wrapper, actions || nav.querySelector(".menu-toggle") || null);
+  if (socialStrip) {
+    socialStrip.appendChild(wrapper);
+  } else {
+    const actions = nav.querySelector(".header-actions");
+    nav.insertBefore(wrapper, actions || nav.querySelector(".menu-toggle") || null);
+  }
 
   if (!document.querySelector("#google_translate_element")) {
     const translateNode = document.createElement("div");
