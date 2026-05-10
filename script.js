@@ -2,9 +2,9 @@ const menuToggle = document.querySelector(".menu-toggle");
 const mainNav = document.querySelector(".main-nav");
 
 const languageOptions = [
-  { value: "en", label: "English", short: "EN", flag: "🇬🇧", dir: "ltr" },
-  { value: "ar", label: "Arabic", short: "AR", flag: "🇦🇪", dir: "rtl" },
-  { value: "zh-CN", label: "Chinese", short: "中文", flag: "🇨🇳", dir: "ltr" }
+  { value: "en", label: "English", short: "EN", flag: "\u{1F1EC}\u{1F1E7}", dir: "ltr" },
+  { value: "ar", label: "Arabic", short: "AR", flag: "\u{1F1E6}\u{1F1EA}", dir: "rtl" },
+  { value: "zh-CN", label: "Chinese", short: "\u4E2D\u6587", flag: "\u{1F1E8}\u{1F1F3}", dir: "ltr" }
 ];
 
 const setPageDirection = (language) => {
@@ -12,6 +12,20 @@ const setPageDirection = (language) => {
   document.documentElement.lang = option.value === "zh-CN" ? "zh-CN" : option.value;
   document.documentElement.dir = option.dir;
 };
+
+const updateTranslateCookie = (language) => {
+  const host = window.location.hostname;
+  const rootHost = host && !host.includes("localhost") ? host.replace(/^www\./, "") : "";
+  const cookieDomains = ["", rootHost ? `; domain=.${rootHost}` : ""].filter((item, index, list) => list.indexOf(item) === index);
+  const cookieValue = language === "en" ? "" : `/en/${language}`;
+  const expiry = language === "en" ? "Thu, 01 Jan 1970 00:00:00 GMT" : new Date(Date.now() + 31536000000).toUTCString();
+
+  cookieDomains.forEach((domain) => {
+    document.cookie = `googtrans=${cookieValue}; path=/; expires=${expiry}; SameSite=Lax${domain}`;
+  });
+};
+
+const translateReloadKey = (language) => `scrapwestTranslateReload:${language}`;
 
 window.googleTranslateElementInit = () => {
   if (!window.google?.translate || document.querySelector("#google_translate_element select")) return;
@@ -22,24 +36,33 @@ window.googleTranslateElementInit = () => {
     autoDisplay: false,
     layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE
   }, "google_translate_element");
+
+  const savedLanguage = window.localStorage.getItem("scrapwestLanguage") || "en";
+  if (savedLanguage !== "en") {
+    window.setTimeout(() => applyGoogleLanguage(savedLanguage), 500);
+  }
 };
 
 const applyGoogleLanguage = (language, attempt = 0) => {
   setPageDirection(language);
   window.localStorage.setItem("scrapwestLanguage", language);
+  updateTranslateCookie(language);
 
   const combo = document.querySelector(".goog-te-combo");
   if (!combo) {
     if (attempt < 20) {
       window.setTimeout(() => applyGoogleLanguage(language, attempt + 1), 250);
+    } else if (window.sessionStorage.getItem(translateReloadKey(language)) !== "done") {
+      window.sessionStorage.setItem(translateReloadKey(language), "done");
+      window.location.reload();
     }
     return;
   }
 
   combo.value = language;
-  combo.dispatchEvent(new Event("change"));
+  combo.dispatchEvent(new Event("change", { bubbles: true }));
+  window.sessionStorage.removeItem(translateReloadKey(language));
 };
-
 const buildLanguageSwitcher = () => {
   const nav = document.querySelector(".sw-nav") || document.querySelector(".nav-inner");
   const socialStrip = document.querySelector(".sw-social-strip-inner");
