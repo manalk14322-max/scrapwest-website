@@ -1,6 +1,87 @@
 const menuToggle = document.querySelector(".menu-toggle");
 const mainNav = document.querySelector(".main-nav");
 
+const languageOptions = [
+  { value: "en", label: "English", dir: "ltr" },
+  { value: "ar", label: "Arabic", dir: "rtl" },
+  { value: "zh-CN", label: "Chinese", dir: "ltr" }
+];
+
+const setPageDirection = (language) => {
+  const option = languageOptions.find((item) => item.value === language) || languageOptions[0];
+  document.documentElement.lang = option.value === "zh-CN" ? "zh-CN" : option.value;
+  document.documentElement.dir = option.dir;
+};
+
+window.googleTranslateElementInit = () => {
+  if (!window.google?.translate || document.querySelector("#google_translate_element select")) return;
+
+  new window.google.translate.TranslateElement({
+    pageLanguage: "en",
+    includedLanguages: "en,ar,zh-CN",
+    autoDisplay: false,
+    layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE
+  }, "google_translate_element");
+};
+
+const applyGoogleLanguage = (language, attempt = 0) => {
+  setPageDirection(language);
+  window.localStorage.setItem("scrapwestLanguage", language);
+
+  const combo = document.querySelector(".goog-te-combo");
+  if (!combo) {
+    if (attempt < 20) {
+      window.setTimeout(() => applyGoogleLanguage(language, attempt + 1), 250);
+    }
+    return;
+  }
+
+  combo.value = language;
+  combo.dispatchEvent(new Event("change"));
+};
+
+const buildLanguageSwitcher = () => {
+  const nav = document.querySelector(".sw-nav") || document.querySelector(".nav-inner");
+  if (!nav || document.querySelector(".sw-language-switcher")) return;
+
+  const savedLanguage = window.localStorage.getItem("scrapwestLanguage") || "en";
+  const wrapper = document.createElement("label");
+  wrapper.className = "sw-language-switcher";
+  wrapper.setAttribute("aria-label", "Change website language");
+  wrapper.innerHTML = `
+    <span>Language</span>
+    <select>
+      ${languageOptions.map((item) => `<option value="${item.value}">${item.label}</option>`).join("")}
+    </select>
+  `;
+
+  const select = wrapper.querySelector("select");
+  select.value = languageOptions.some((item) => item.value === savedLanguage) ? savedLanguage : "en";
+  setPageDirection(select.value);
+  select.addEventListener("change", () => applyGoogleLanguage(select.value));
+
+  const actions = nav.querySelector(".header-actions");
+  nav.insertBefore(wrapper, actions || nav.querySelector(".menu-toggle") || null);
+
+  if (!document.querySelector("#google_translate_element")) {
+    const translateNode = document.createElement("div");
+    translateNode.id = "google_translate_element";
+    translateNode.setAttribute("aria-hidden", "true");
+    document.body.appendChild(translateNode);
+  }
+
+  if (!document.querySelector('script[src*="translate_a/element.js"]')) {
+    const translateScript = document.createElement("script");
+    translateScript.src = "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+    translateScript.async = true;
+    document.head.appendChild(translateScript);
+  }
+
+  if (select.value !== "en") {
+    applyGoogleLanguage(select.value);
+  }
+};
+
 const showToast = (message) => {
   let toast = document.querySelector(".site-toast");
 
@@ -36,6 +117,8 @@ if (!document.querySelector(".skip-link")) {
   skipLink.textContent = "Skip to content";
   document.body.prepend(skipLink);
 }
+
+buildLanguageSwitcher();
 
 menuToggle?.setAttribute("aria-expanded", "false");
 

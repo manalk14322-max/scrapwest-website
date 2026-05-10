@@ -7665,9 +7665,123 @@ body {
     height: 25px;
   }
 
-  .floating-actions .floating-whatsapp::after {
+.floating-actions .floating-whatsapp::after {
     left: 50%;
     width: 12px;
     height: 8px;
+  }
+}
+
+.sw-language-switcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 42px;
+  padding: 6px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  font-weight: 800;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.sw-language-switcher span {
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  opacity: 0.82;
+}
+
+.sw-language-switcher select {
+  min-width: 104px;
+  border: 0;
+  outline: 0;
+  border-radius: 999px;
+  padding: 8px 28px 8px 12px;
+  background: #fff;
+  color: var(--sw-navy);
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+#google_translate_element,
+.goog-te-banner-frame,
+.goog-te-gadget-icon,
+.goog-te-menu-value,
+.skiptranslate iframe {
+  display: none !important;
+}
+
+body {
+  top: 0 !important;
+}
+
+html[dir="rtl"] body {
+  direction: rtl;
+}
+
+html[dir="rtl"] .sw-nav,
+html[dir="rtl"] .main-nav,
+html[dir="rtl"] .header-actions,
+html[dir="rtl"] .sw-hero-actions,
+html[dir="rtl"] .sw-mini-trust,
+html[dir="rtl"] .sw-social-strip-inner,
+html[dir="rtl"] .floating-actions {
+  direction: rtl;
+}
+
+html[dir="rtl"] .sw-hero-copy,
+html[dir="rtl"] .sw-service-hero-copy,
+html[dir="rtl"] .sw-section-title,
+html[dir="rtl"] .sw-about-copy,
+html[dir="rtl"] .sw-footer {
+  text-align: right;
+}
+
+html[dir="rtl"] .floating-actions .floating-call {
+  left: auto;
+  right: 22px;
+}
+
+html[dir="rtl"] .floating-actions .floating-whatsapp {
+  right: auto;
+  left: 22px;
+}
+
+@media (max-width: 1180px) {
+  .sw-language-switcher span {
+    display: none;
+  }
+
+  .sw-language-switcher select {
+    min-width: 98px;
+  }
+}
+
+@media (max-width: 700px) {
+  .sw-language-switcher {
+    order: 2;
+    min-height: 38px;
+    padding: 4px;
+  }
+
+  .sw-language-switcher select {
+    min-width: 92px;
+    padding: 7px 24px 7px 10px;
+    font-size: 0.74rem;
+  }
+
+  html[dir="rtl"] .floating-actions .floating-call {
+    left: auto;
+    right: 16px;
+  }
+
+  html[dir="rtl"] .floating-actions .floating-whatsapp {
+    right: auto;
+    left: 12px;
   }
 }
