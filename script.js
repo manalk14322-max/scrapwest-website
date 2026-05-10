@@ -2,9 +2,9 @@ const menuToggle = document.querySelector(".menu-toggle");
 const mainNav = document.querySelector(".main-nav");
 
 const languageOptions = [
-  { value: "en", label: "English", dir: "ltr" },
-  { value: "ar", label: "Arabic", dir: "rtl" },
-  { value: "zh-CN", label: "Chinese", dir: "ltr" }
+  { value: "en", label: "English", short: "EN", flag: "🇬🇧", dir: "ltr" },
+  { value: "ar", label: "Arabic", short: "AR", flag: "🇦🇪", dir: "rtl" },
+  { value: "zh-CN", label: "Chinese", short: "中文", flag: "🇨🇳", dir: "ltr" }
 ];
 
 const setPageDirection = (language) => {
@@ -51,9 +51,8 @@ const buildLanguageSwitcher = () => {
   wrapper.className = "sw-language-switcher";
   wrapper.setAttribute("aria-label", "Change website language");
   wrapper.innerHTML = `
-    <span>Language</span>
     <select>
-      ${languageOptions.map((item) => `<option value="${item.value}">${item.label}</option>`).join("")}
+      ${languageOptions.map((item) => `<option value="${item.value}">${item.flag} ${item.short}</option>`).join("")}
     </select>
   `;
 

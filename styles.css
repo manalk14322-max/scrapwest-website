@@ -7679,9 +7679,8 @@ body {
 .sw-language-switcher {
   display: inline-flex;
   align-items: center;
-  gap: 7px;
   min-height: 30px;
-  padding: 3px 4px 3px 10px;
+  padding: 3px;
   border: 1px solid rgba(249, 115, 22, 0.28);
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.045);
@@ -7693,18 +7692,15 @@ body {
 }
 
 .sw-language-switcher span {
-  font-size: 0.62rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: rgba(255, 255, 255, 0.72);
+  display: none;
 }
 
 .sw-language-switcher select {
-  min-width: 94px;
+  min-width: 82px;
   border: 0;
   outline: 0;
   border-radius: 999px;
-  padding: 6px 24px 6px 10px;
+  padding: 6px 22px 6px 10px;
   background: rgba(255, 255, 255, 0.96);
   color: #07151D;
   font: inherit;
@@ -7758,12 +7754,8 @@ html[dir="rtl"] .floating-actions .floating-whatsapp {
 }
 
 @media (max-width: 1180px) {
-  .sw-language-switcher span {
-    display: none;
-  }
-
   .sw-language-switcher select {
-    min-width: 98px;
+    min-width: 78px;
   }
 }
 
@@ -7776,8 +7768,8 @@ html[dir="rtl"] .floating-actions .floating-whatsapp {
   }
 
   .sw-language-switcher select {
-    min-width: 86px;
-    padding: 6px 22px 6px 9px;
+    min-width: 76px;
+    padding: 6px 20px 6px 8px;
     font-size: 0.68rem;
   }
 
