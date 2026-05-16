@@ -9,13 +9,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --navy: #07151d;
-      --navy-soft: #102733;
-      --orange: #ff7518;
-      --green: #18b75b;
-      --cream: #f8f3e8;
-      --line: rgba(255, 255, 255, 0.16);
-      --ink: #09131c;
+      --ink: #07151d;
+      --ink-2: #0f2732;
+      --orange: #ff6b17;
+      --green: #16a34a;
+      --paper: #f7f3ec;
+      --muted: #61717a;
     }
 
     * {
@@ -25,294 +24,322 @@
     body {
       min-height: 100vh;
       margin: 0;
+      padding: 34px;
       display: grid;
       place-items: center;
-      gap: 28px;
-      padding: 40px;
+      gap: 18px;
       background:
-        radial-gradient(circle at 12% 12%, rgba(255, 117, 24, 0.18), transparent 28%),
-        radial-gradient(circle at 90% 80%, rgba(24, 183, 91, 0.14), transparent 30%),
-        #101010;
-      color: white;
+        radial-gradient(circle at 10% 10%, rgba(255, 107, 23, 0.24), transparent 28%),
+        radial-gradient(circle at 95% 88%, rgba(22, 163, 74, 0.16), transparent 30%),
+        linear-gradient(135deg, #141414, #07151d 70%);
       font-family: "Poppins", Arial, sans-serif;
+      color: #fff;
     }
 
-    .sheet {
+    .cards {
+      width: min(1120px, 100%);
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 28px;
-      width: min(1120px, 100%);
+      gap: 24px;
     }
 
     .card {
       position: relative;
-      width: 100%;
       aspect-ratio: 3.5 / 2;
       overflow: hidden;
-      border-radius: 24px;
-      box-shadow: 0 26px 70px rgba(0, 0, 0, 0.38);
+      border-radius: 18px;
+      box-shadow: 0 28px 70px rgba(0, 0, 0, 0.42);
       isolation: isolate;
     }
 
-    .card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
+    .front {
+      padding: 30px;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 22px;
       background:
-        linear-gradient(135deg, rgba(255, 255, 255, 0.12), transparent 32%),
-        radial-gradient(circle at 78% 20%, rgba(255, 117, 24, 0.22), transparent 22%);
-      pointer-events: none;
-      z-index: 1;
+        linear-gradient(110deg, rgba(7, 21, 29, 0.97) 0 48%, rgba(7, 21, 29, 0.82) 70%),
+        url("assets/hero/real-scrap-yard.jpeg") center / cover;
     }
 
-    .front {
-      padding: 32px;
-      display: grid;
-      grid-template-columns: 0.92fr 1.08fr;
-      align-items: stretch;
-      background:
-        linear-gradient(90deg, rgba(7, 21, 29, 0.94), rgba(7, 21, 29, 0.76)),
-        url("assets/hero/real-scrap-yard.jpeg") center / cover;
+    .front::before,
+    .back::before {
+      content: "";
+      position: absolute;
+      inset: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 14px;
+      pointer-events: none;
+      z-index: 2;
     }
 
     .front::after {
       content: "";
       position: absolute;
-      right: -70px;
-      top: -85px;
+      right: -95px;
+      top: -115px;
       width: 310px;
       height: 310px;
-      border: 24px solid rgba(255, 117, 24, 0.3);
       border-radius: 50%;
-      z-index: 0;
+      border: 36px solid rgba(255, 107, 23, 0.35);
+      z-index: 1;
     }
 
-    .brand {
+    .brand-block,
+    .front-services {
       position: relative;
-      z-index: 2;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 22px;
-    }
-
-    .logo-wrap {
-      display: flex;
-      align-items: center;
-      gap: 14px;
+      z-index: 3;
     }
 
     .logo {
-      width: 94px;
-      height: 94px;
+      width: 92px;
+      height: 92px;
       object-fit: contain;
-      border-radius: 16px;
-      background: #fff;
+      display: block;
       padding: 7px;
-      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.24);
+      border-radius: 18px;
+      background: #fff;
+      box-shadow: 0 16px 38px rgba(0, 0, 0, 0.28);
     }
 
-    .brand-title {
-      margin: 0;
+    .brand-name {
+      margin: 18px 0 0;
       font-family: "Montserrat", Arial, sans-serif;
-      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-size: clamp(2.1rem, 4vw, 3.35rem);
       line-height: 0.92;
+      letter-spacing: -0.055em;
       text-transform: uppercase;
-      letter-spacing: -0.04em;
     }
 
-    .brand-title span {
+    .brand-name span {
       color: var(--orange);
       display: block;
     }
 
     .tagline {
-      margin: 8px 0 0;
-      color: rgba(255, 255, 255, 0.8);
-      font-weight: 600;
-      letter-spacing: 0.02em;
-    }
-
-    .chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 9px;
-    }
-
-    .chip {
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      padding: 8px 12px;
-      background: rgba(255, 255, 255, 0.08);
-      color: rgba(255, 255, 255, 0.86);
-      font-size: 0.76rem;
-      font-weight: 800;
-      text-transform: uppercase;
-    }
-
-    .front-panel {
-      position: relative;
-      z-index: 2;
-      align-self: end;
-      justify-self: end;
-      width: min(320px, 100%);
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      border-radius: 22px;
-      padding: 22px;
-      background: rgba(4, 15, 22, 0.72);
-      backdrop-filter: blur(14px);
-    }
-
-    .front-panel small {
-      display: block;
-      margin-bottom: 8px;
-      color: var(--orange);
-      font-weight: 900;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .front-panel p {
-      margin: 0;
+      margin: 12px 0 0;
+      max-width: 290px;
       color: rgba(255, 255, 255, 0.84);
-      font-size: 0.95rem;
-      line-height: 1.65;
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.45;
+    }
+
+    .license-line {
+      position: absolute;
+      left: 30px;
+      bottom: 30px;
+      z-index: 3;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .pill {
+      border-radius: 999px;
+      padding: 8px 11px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      color: rgba(255, 255, 255, 0.92);
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .front-services {
+      align-self: center;
+      justify-self: end;
+      width: min(235px, 100%);
+      padding: 20px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.94);
+      color: var(--ink);
+      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.28);
+    }
+
+    .front-services strong {
+      display: block;
+      color: var(--orange);
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .front-services ul {
+      list-style: none;
+      margin: 12px 0 0;
+      padding: 0;
+      display: grid;
+      gap: 8px;
+      color: #1d2d36;
+      font-size: 0.78rem;
+      font-weight: 800;
+    }
+
+    .front-services li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .front-services li::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      flex: 0 0 auto;
+      border-radius: 50%;
+      background: var(--orange);
     }
 
     .back {
       display: grid;
-      grid-template-columns: 1fr 1.15fr;
-      background:
-        linear-gradient(120deg, var(--cream), #fff 58%, #eef5f3);
+      grid-template-columns: 0.78fr 1.22fr;
+      background: linear-gradient(120deg, #ffffff, var(--paper));
       color: var(--ink);
     }
 
-    .back-left {
+    .back-brand {
       position: relative;
-      padding: 30px;
+      z-index: 3;
+      padding: 30px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
       background:
-        linear-gradient(135deg, rgba(7, 21, 29, 0.96), rgba(16, 39, 51, 0.94)),
+        linear-gradient(150deg, rgba(7, 21, 29, 0.96), rgba(15, 39, 50, 0.92)),
         url("assets/hero/copper-wire.jpeg") center / cover;
       color: #fff;
-      overflow: hidden;
     }
 
-    .back-left::after {
-      content: "";
-      position: absolute;
-      right: -58px;
-      bottom: -70px;
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      background: rgba(255, 117, 24, 0.24);
+    .back-brand .mini-logo {
+      width: 78px;
+      height: 78px;
+      object-fit: contain;
+      padding: 6px;
+      border-radius: 16px;
+      background: #fff;
     }
 
-    .back-left h2 {
-      position: relative;
-      z-index: 1;
-      margin: 0;
+    .back-brand h2 {
+      margin: 18px 0 0;
       font-family: "Montserrat", Arial, sans-serif;
-      font-size: clamp(1.35rem, 2.6vw, 2.15rem);
+      font-size: 1.35rem;
       line-height: 1.05;
       text-transform: uppercase;
     }
 
-    .back-left h2 span {
+    .back-brand h2 span {
       color: var(--orange);
     }
 
-    .back-left p {
-      position: relative;
-      z-index: 1;
-      margin: 14px 0 0;
-      color: rgba(255, 255, 255, 0.78);
-      line-height: 1.6;
-      font-size: 0.88rem;
+    .back-brand p {
+      margin: 10px 0 0;
+      color: rgba(255, 255, 255, 0.76);
+      font-size: 0.72rem;
+      line-height: 1.55;
     }
 
-    .qr-style {
-      position: absolute;
-      left: 30px;
-      bottom: 30px;
-      z-index: 1;
-      width: 78px;
-      height: 78px;
-      border: 8px solid #fff;
-      border-radius: 18px;
+    .qr {
+      width: 70px;
+      height: 70px;
+      border-radius: 14px;
+      border: 7px solid #fff;
       background:
-        linear-gradient(90deg, var(--orange) 20%, transparent 20% 40%, var(--orange) 40% 60%, transparent 60% 80%, var(--orange) 80%),
-        linear-gradient(var(--orange) 20%, transparent 20% 40%, var(--orange) 40% 60%, transparent 60% 80%, var(--orange) 80%);
-      background-size: 100% 100%, 100% 100%;
-      opacity: 0.95;
+        repeating-linear-gradient(90deg, var(--orange) 0 8px, transparent 8px 14px),
+        repeating-linear-gradient(0deg, rgba(7, 21, 29, 0.85) 0 7px, transparent 7px 13px);
+      opacity: 0.9;
     }
 
-    .back-right {
+    .contact-panel {
+      position: relative;
+      z-index: 3;
       padding: 30px 32px;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      gap: 16px;
+      gap: 13px;
+    }
+
+    .contact-title {
+      margin: 0 0 4px;
+      font-family: "Montserrat", Arial, sans-serif;
+      font-size: 1.15rem;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
     }
 
     .contact-row {
       display: grid;
-      grid-template-columns: 44px 1fr;
-      gap: 13px;
+      grid-template-columns: 40px 1fr;
       align-items: center;
-      padding: 12px 0;
+      gap: 12px;
+      padding: 10px 0;
       border-bottom: 1px solid rgba(7, 21, 29, 0.12);
     }
 
     .icon {
+      width: 40px;
+      height: 40px;
       display: grid;
       place-items: center;
-      width: 44px;
-      height: 44px;
-      border-radius: 14px;
+      border-radius: 12px;
       background: var(--orange);
       color: #fff;
-      font-size: 1.15rem;
+      font-size: 0.95rem;
       font-weight: 900;
+      box-shadow: 0 10px 24px rgba(255, 107, 23, 0.25);
     }
 
-    .contact-row strong {
+    .contact-row small {
       display: block;
-      color: rgba(9, 19, 28, 0.58);
-      font-size: 0.69rem;
-      letter-spacing: 0.1em;
+      color: var(--muted);
+      font-size: 0.62rem;
+      font-weight: 900;
+      letter-spacing: 0.11em;
       text-transform: uppercase;
     }
 
-    .contact-row span {
+    .contact-row b {
       display: block;
-      margin-top: 2px;
+      margin-top: 1px;
       color: var(--ink);
-      font-size: clamp(0.95rem, 2vw, 1.18rem);
+      font-size: 1rem;
+      line-height: 1.2;
+    }
+
+    .service-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      padding-top: 4px;
+    }
+
+    .service-tags span {
+      padding: 7px 9px;
+      border-radius: 999px;
+      background: rgba(7, 21, 29, 0.08);
+      color: #1c313a;
+      font-size: 0.64rem;
       font-weight: 900;
     }
 
-    .service-line {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 4px;
-    }
-
-    .service-line span {
-      border-radius: 999px;
-      padding: 8px 10px;
-      background: rgba(7, 21, 29, 0.07);
-      color: #1f313c;
-      font-size: 0.72rem;
-      font-weight: 800;
-    }
-
-    .print-note {
+    .note {
+      margin: 0;
       width: min(1120px, 100%);
-      color: rgba(255, 255, 255, 0.72);
+      color: rgba(255, 255, 255, 0.7);
       text-align: center;
-      font-size: 0.92rem;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 900px) {
+      body {
+        padding: 20px;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
     }
 
     @media print {
@@ -322,8 +349,10 @@
         background: #fff;
       }
 
-      .sheet {
+      .cards {
         width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, 3.5in);
         gap: 0.2in;
       }
 
@@ -335,86 +364,81 @@
         break-inside: avoid;
       }
 
-      .print-note {
+      .note {
         display: none;
-      }
-    }
-
-    @media (max-width: 850px) {
-      body {
-        padding: 20px;
-      }
-
-      .sheet {
-        grid-template-columns: 1fr;
       }
     }
   </style>
 </head>
 <body>
-  <main class="sheet" aria-label="Scrap West visiting card design">
-    <section class="card front" aria-label="Visiting card front">
-      <div class="brand">
-        <div>
-          <div class="logo-wrap">
-            <img class="logo" src="logo1.png.jpeg" alt="Scrap West logo">
-          </div>
-          <h1 class="brand-title">Scrap <span>West</span></h1>
-          <p class="tagline">UAE Scrap Buyers & Recycling Company</p>
-        </div>
-        <div class="chips" aria-label="Key services">
-          <span class="chip">Best Market Rates</span>
-          <span class="chip">Fast Pickup</span>
-          <span class="chip">All UAE</span>
-        </div>
+  <main class="cards" aria-label="Scrap West visiting card">
+    <section class="card front" aria-label="Front side">
+      <div class="brand-block">
+        <img class="logo" src="logo1.png.jpeg" alt="Scrap West logo">
+        <h1 class="brand-name">Scrap <span>West</span></h1>
+        <p class="tagline">UAE Scrap Buyers & Recycling Company</p>
       </div>
 
-      <aside class="front-panel">
-        <small>Sell Scrap Today</small>
-        <p>Metal, copper, aluminium, AC, cable, e-waste, machinery and industrial scrap buying across UAE.</p>
-      </aside>
+      <div class="front-services">
+        <strong>We Buy</strong>
+        <ul>
+          <li>Copper & Aluminium Scrap</li>
+          <li>AC, Cable & E-Waste</li>
+          <li>Machinery & Factory Scrap</li>
+          <li>Warehouse Clearance</li>
+        </ul>
+      </div>
+
+      <div class="license-line" aria-label="Business highlights">
+        <span class="pill">Best Prices</span>
+        <span class="pill">Fast Pickup</span>
+        <span class="pill">All UAE</span>
+      </div>
     </section>
 
-    <section class="card back" aria-label="Visiting card back">
-      <div class="back-left">
-        <h2>Trusted <span>Scrap Buyer</span> in UAE</h2>
-        <p>Send photos on WhatsApp for quick pricing, free guidance and fast pickup scheduling.</p>
-        <div class="qr-style" aria-hidden="true"></div>
+    <section class="card back" aria-label="Back side">
+      <div class="back-brand">
+        <div>
+          <img class="mini-logo" src="logo1.png.jpeg" alt="Scrap West logo">
+          <h2>Trusted <span>Scrap Buyer</span></h2>
+          <p>Send photos on WhatsApp for fast pricing and pickup scheduling.</p>
+        </div>
+        <div class="qr" aria-hidden="true"></div>
       </div>
 
-      <div class="back-right">
+      <div class="contact-panel">
+        <h2 class="contact-title">Contact Scrap West</h2>
         <div class="contact-row">
-          <div class="icon">P</div>
+          <div class="icon">☎</div>
           <div>
-            <strong>Call / WhatsApp</strong>
-            <span>052 318 1007</span>
+            <small>Call / WhatsApp</small>
+            <b>052 318 1007</b>
           </div>
         </div>
         <div class="contact-row">
           <div class="icon">@</div>
           <div>
-            <strong>Email</strong>
-            <span>info@scrapwest.ae</span>
+            <small>Email</small>
+            <b>info@scrapwest.ae</b>
           </div>
         </div>
         <div class="contact-row">
-          <div class="icon">W</div>
+          <div class="icon">↗</div>
           <div>
-            <strong>Website</strong>
-            <span>www.scrapwest.ae</span>
+            <small>Website</small>
+            <b>www.scrapwest.ae</b>
           </div>
         </div>
-        <div class="service-line">
-          <span>Copper</span>
-          <span>Aluminium</span>
-          <span>AC Scrap</span>
-          <span>E-Waste</span>
-          <span>Machinery</span>
+        <div class="service-tags">
+          <span>Dubai</span>
+          <span>Sharjah</span>
+          <span>Abu Dhabi</span>
+          <span>Ajman</span>
         </div>
       </div>
     </section>
   </main>
 
-  <p class="print-note">Open this file in browser and press Ctrl+P. Use landscape print/export PDF for both front and back.</p>
+  <p class="note">Front and back visiting card preview. For print/PDF: Ctrl + P, landscape, 100% scale.</p>
 </body>
 </html>
