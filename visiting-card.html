@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scrap West Visiting Card</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #07151d;
+      --navy-soft: #102733;
+      --orange: #ff7518;
+      --green: #18b75b;
+      --cream: #f8f3e8;
+      --line: rgba(255, 255, 255, 0.16);
+      --ink: #09131c;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      display: grid;
+      place-items: center;
+      gap: 28px;
+      padding: 40px;
+      background:
+        radial-gradient(circle at 12% 12%, rgba(255, 117, 24, 0.18), transparent 28%),
+        radial-gradient(circle at 90% 80%, rgba(24, 183, 91, 0.14), transparent 30%),
+        #101010;
+      color: white;
+      font-family: "Poppins", Arial, sans-serif;
+    }
+
+    .sheet {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 28px;
+      width: min(1120px, 100%);
+    }
+
+    .card {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 3.5 / 2;
+      overflow: hidden;
+      border-radius: 24px;
+      box-shadow: 0 26px 70px rgba(0, 0, 0, 0.38);
+      isolation: isolate;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.12), transparent 32%),
+        radial-gradient(circle at 78% 20%, rgba(255, 117, 24, 0.22), transparent 22%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .front {
+      padding: 32px;
+      display: grid;
+      grid-template-columns: 0.92fr 1.08fr;
+      align-items: stretch;
+      background:
+        linear-gradient(90deg, rgba(7, 21, 29, 0.94), rgba(7, 21, 29, 0.76)),
+        url("assets/hero/real-scrap-yard.jpeg") center / cover;
+    }
+
+    .front::after {
+      content: "";
+      position: absolute;
+      right: -70px;
+      top: -85px;
+      width: 310px;
+      height: 310px;
+      border: 24px solid rgba(255, 117, 24, 0.3);
+      border-radius: 50%;
+      z-index: 0;
+    }
+
+    .brand {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 22px;
+    }
+
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .logo {
+      width: 94px;
+      height: 94px;
+      object-fit: contain;
+      border-radius: 16px;
+      background: #fff;
+      padding: 7px;
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.24);
+    }
+
+    .brand-title {
+      margin: 0;
+      font-family: "Montserrat", Arial, sans-serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 0.92;
+      text-transform: uppercase;
+      letter-spacing: -0.04em;
+    }
+
+    .brand-title span {
+      color: var(--orange);
+      display: block;
+    }
+
+    .tagline {
+      margin: 8px 0 0;
+      color: rgba(255, 255, 255, 0.8);
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+    }
+
+    .chip {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 8px 12px;
+      background: rgba(255, 255, 255, 0.08);
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 0.76rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .front-panel {
+      position: relative;
+      z-index: 2;
+      align-self: end;
+      justify-self: end;
+      width: min(320px, 100%);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 22px;
+      padding: 22px;
+      background: rgba(4, 15, 22, 0.72);
+      backdrop-filter: blur(14px);
+    }
+
+    .front-panel small {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--orange);
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .front-panel p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.84);
+      font-size: 0.95rem;
+      line-height: 1.65;
+    }
+
+    .back {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      background:
+        linear-gradient(120deg, var(--cream), #fff 58%, #eef5f3);
+      color: var(--ink);
+    }
+
+    .back-left {
+      position: relative;
+      padding: 30px;
+      background:
+        linear-gradient(135deg, rgba(7, 21, 29, 0.96), rgba(16, 39, 51, 0.94)),
+        url("assets/hero/copper-wire.jpeg") center / cover;
+      color: #fff;
+      overflow: hidden;
+    }
+
+    .back-left::after {
+      content: "";
+      position: absolute;
+      right: -58px;
+      bottom: -70px;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: rgba(255, 117, 24, 0.24);
+    }
+
+    .back-left h2 {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      font-family: "Montserrat", Arial, sans-serif;
+      font-size: clamp(1.35rem, 2.6vw, 2.15rem);
+      line-height: 1.05;
+      text-transform: uppercase;
+    }
+
+    .back-left h2 span {
+      color: var(--orange);
+    }
+
+    .back-left p {
+      position: relative;
+      z-index: 1;
+      margin: 14px 0 0;
+      color: rgba(255, 255, 255, 0.78);
+      line-height: 1.6;
+      font-size: 0.88rem;
+    }
+
+    .qr-style {
+      position: absolute;
+      left: 30px;
+      bottom: 30px;
+      z-index: 1;
+      width: 78px;
+      height: 78px;
+      border: 8px solid #fff;
+      border-radius: 18px;
+      background:
+        linear-gradient(90deg, var(--orange) 20%, transparent 20% 40%, var(--orange) 40% 60%, transparent 60% 80%, var(--orange) 80%),
+        linear-gradient(var(--orange) 20%, transparent 20% 40%, var(--orange) 40% 60%, transparent 60% 80%, var(--orange) 80%);
+      background-size: 100% 100%, 100% 100%;
+      opacity: 0.95;
+    }
+
+    .back-right {
+      padding: 30px 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .contact-row {
+      display: grid;
+      grid-template-columns: 44px 1fr;
+      gap: 13px;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(7, 21, 29, 0.12);
+    }
+
+    .icon {
+      display: grid;
+      place-items: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      background: var(--orange);
+      color: #fff;
+      font-size: 1.15rem;
+      font-weight: 900;
+    }
+
+    .contact-row strong {
+      display: block;
+      color: rgba(9, 19, 28, 0.58);
+      font-size: 0.69rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .contact-row span {
+      display: block;
+      margin-top: 2px;
+      color: var(--ink);
+      font-size: clamp(0.95rem, 2vw, 1.18rem);
+      font-weight: 900;
+    }
+
+    .service-line {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .service-line span {
+      border-radius: 999px;
+      padding: 8px 10px;
+      background: rgba(7, 21, 29, 0.07);
+      color: #1f313c;
+      font-size: 0.72rem;
+      font-weight: 800;
+    }
+
+    .print-note {
+      width: min(1120px, 100%);
+      color: rgba(255, 255, 255, 0.72);
+      text-align: center;
+      font-size: 0.92rem;
+    }
+
+    @media print {
+      body {
+        display: block;
+        padding: 0;
+        background: #fff;
+      }
+
+      .sheet {
+        width: 100%;
+        gap: 0.2in;
+      }
+
+      .card {
+        width: 3.5in;
+        height: 2in;
+        border-radius: 0;
+        box-shadow: none;
+        break-inside: avoid;
+      }
+
+      .print-note {
+        display: none;
+      }
+    }
+
+    @media (max-width: 850px) {
+      body {
+        padding: 20px;
+      }
+
+      .sheet {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="sheet" aria-label="Scrap West visiting card design">
+    <section class="card front" aria-label="Visiting card front">
+      <div class="brand">
+        <div>
+          <div class="logo-wrap">
+            <img class="logo" src="logo1.png.jpeg" alt="Scrap West logo">
+          </div>
+          <h1 class="brand-title">Scrap <span>West</span></h1>
+          <p class="tagline">UAE Scrap Buyers & Recycling Company</p>
+        </div>
+        <div class="chips" aria-label="Key services">
+          <span class="chip">Best Market Rates</span>
+          <span class="chip">Fast Pickup</span>
+          <span class="chip">All UAE</span>
+        </div>
+      </div>
+
+      <aside class="front-panel">
+        <small>Sell Scrap Today</small>
+        <p>Metal, copper, aluminium, AC, cable, e-waste, machinery and industrial scrap buying across UAE.</p>
+      </aside>
+    </section>
+
+    <section class="card back" aria-label="Visiting card back">
+      <div class="back-left">
+        <h2>Trusted <span>Scrap Buyer</span> in UAE</h2>
+        <p>Send photos on WhatsApp for quick pricing, free guidance and fast pickup scheduling.</p>
+        <div class="qr-style" aria-hidden="true"></div>
+      </div>
+
+      <div class="back-right">
+        <div class="contact-row">
+          <div class="icon">P</div>
+          <div>
+            <strong>Call / WhatsApp</strong>
+            <span>052 318 1007</span>
+          </div>
+        </div>
+        <div class="contact-row">
+          <div class="icon">@</div>
+          <div>
+            <strong>Email</strong>
+            <span>info@scrapwest.ae</span>
+          </div>
+        </div>
+        <div class="contact-row">
+          <div class="icon">W</div>
+          <div>
+            <strong>Website</strong>
+            <span>www.scrapwest.ae</span>
+          </div>
+        </div>
+        <div class="service-line">
+          <span>Copper</span>
+          <span>Aluminium</span>
+          <span>AC Scrap</span>
+          <span>E-Waste</span>
+          <span>Machinery</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <p class="print-note">Open this file in browser and press Ctrl+P. Use landscape print/export PDF for both front and back.</p>
+</body>
+</html>
