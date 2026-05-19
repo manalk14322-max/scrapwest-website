@@ -7234,10 +7234,10 @@ body {
 
 .sw-social-strip .sw-language-switcher {
   margin-left: auto;
-  padding: 3px 9px;
-  border: 1px solid rgba(5, 11, 18, 0.08);
-  border-radius: 2px;
-  background: #ffffff;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
 }
 
 .sw-social-links a {
@@ -7683,7 +7683,7 @@ body {
 .sw-language-switcher {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 6px;
   min-height: 30px;
   padding: 0;
   border: 0;
@@ -7699,15 +7699,15 @@ body {
 .sw-language-option {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
-  min-height: 28px;
+  gap: 3px;
+  min-height: 24px;
   padding: 0;
   border: 0;
   background: transparent;
   color: #0B66D8;
   font: inherit;
-  font-size: 0.9rem;
-  font-weight: 800;
+  font-size: 0.88rem;
+  font-weight: 700;
   line-height: 1;
   cursor: pointer;
 }
@@ -7715,9 +7715,8 @@ body {
 .sw-language-option:hover,
 .sw-language-option:focus,
 .sw-language-option[aria-pressed="true"] {
-  color: #004DAA;
-  text-decoration: underline;
-  text-underline-offset: 3px;
+  color: #0066CC;
+  text-decoration: none;
 }
 
 .sw-language-option:focus-visible {
@@ -7727,7 +7726,7 @@ body {
 
 .sw-language-flag {
   display: inline-block;
-  font-size: 1.16rem;
+  font-size: 1.28rem;
   line-height: 1;
 }
 
@@ -7821,7 +7820,7 @@ html[dir="rtl"] .floating-actions .floating-whatsapp {
 
 @media (max-width: 1180px) {
   .sw-language-switcher {
-    gap: 8px;
+    gap: 5px;
   }
 }
 
@@ -7830,15 +7829,15 @@ html[dir="rtl"] .floating-actions .floating-whatsapp {
     order: 3;
     margin-left: auto;
     min-height: 30px;
-    gap: 7px;
+    gap: 5px;
   }
 
   .sw-language-option {
-    font-size: 0.76rem;
+    font-size: 0.74rem;
   }
 
   .sw-language-flag {
-    font-size: 1rem;
+    font-size: 1.05rem;
   }
 
   html[dir="rtl"] .floating-actions .floating-call {

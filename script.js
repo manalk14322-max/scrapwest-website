@@ -3,8 +3,7 @@ const mainNav = document.querySelector(".main-nav");
 
 const languageOptions = [
   { value: "ar", label: "Arabic", short: "\u0627\u0644\u0639\u0631\u0628\u064A\u0629", flag: "\u{1F1F8}\u{1F1E6}", dir: "rtl" },
-  { value: "en", label: "English", short: "English", flag: "\u{1F1EC}\u{1F1E7}", dir: "ltr" },
-  { value: "zh-CN", label: "Chinese", short: "\u4E2D\u6587", flag: "\u{1F1E8}\u{1F1F3}", dir: "ltr" }
+  { value: "en", label: "English", short: "English", flag: "\u{1F1EC}\u{1F1E7}", dir: "ltr" }
 ];
 
 const setPageDirection = (language) => {
