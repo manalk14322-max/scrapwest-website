@@ -7763,6 +7763,40 @@ html[dir="rtl"] .floating-actions .floating-whatsapp {
   left: 22px;
 }
 
+/* Keep desktop dropdown menus readable over the dark hero/header. */
+.sw-header .main-nav:not(.is-open) .mega-menu,
+.site-header .main-nav:not(.is-open) .mega-menu {
+  z-index: 320;
+  background: #ffffff;
+  border: 1px solid rgba(5, 11, 18, 0.12);
+  border-top: 3px solid var(--sw-orange);
+  box-shadow: 0 26px 70px rgba(5, 11, 18, 0.32);
+  backdrop-filter: none;
+}
+
+.sw-header .main-nav:not(.is-open) .mega-menu a,
+.site-header .main-nav:not(.is-open) .mega-menu a {
+  color: #111827;
+  background: #ffffff;
+  border-bottom: 1px solid rgba(5, 11, 18, 0.12);
+  text-shadow: none;
+}
+
+.sw-header .main-nav:not(.is-open) .service-list-menu a:first-child,
+.sw-header .main-nav:not(.is-open) .other-service-menu a:first-child,
+.site-header .main-nav:not(.is-open) .service-list-menu a:first-child,
+.site-header .main-nav:not(.is-open) .other-service-menu a:first-child {
+  color: var(--sw-orange);
+}
+
+.sw-header .main-nav:not(.is-open) .mega-menu a:hover,
+.sw-header .main-nav:not(.is-open) .mega-menu a:focus,
+.site-header .main-nav:not(.is-open) .mega-menu a:hover,
+.site-header .main-nav:not(.is-open) .mega-menu a:focus {
+  color: #050B12;
+  background: #FFF1E8;
+}
+
 @media (max-width: 1180px) {
   .sw-language-switcher select {
     min-width: 78px;
