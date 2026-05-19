@@ -7683,7 +7683,7 @@ body {
 .sw-language-switcher {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 9px;
   min-height: 30px;
   padding: 0;
   border: 0;
@@ -7699,17 +7699,18 @@ body {
 .sw-language-option {
   display: inline-flex;
   align-items: center;
-  gap: 3px;
-  min-height: 24px;
+  gap: 5px;
+  min-height: 26px;
   padding: 0;
   border: 0;
   background: transparent;
   color: #0B66D8;
   font: inherit;
-  font-size: 0.88rem;
-  font-weight: 700;
+  font-size: 0.9rem;
+  font-weight: 800;
   line-height: 1;
   cursor: pointer;
+  vertical-align: middle;
 }
 
 .sw-language-option:hover,
@@ -7725,9 +7726,13 @@ body {
 }
 
 .sw-language-flag {
-  display: inline-block;
-  font-size: 1.28rem;
-  line-height: 1;
+  display: block;
+  width: 24px;
+  height: 18px;
+  flex: 0 0 24px;
+  object-fit: cover;
+  border: 1px solid rgba(5, 11, 18, 0.16);
+  box-shadow: 0 1px 2px rgba(5, 11, 18, 0.12);
 }
 
 #google_translate_element {
@@ -7820,7 +7825,7 @@ html[dir="rtl"] .floating-actions .floating-whatsapp {
 
 @media (max-width: 1180px) {
   .sw-language-switcher {
-    gap: 5px;
+    gap: 8px;
   }
 }
 
@@ -7829,15 +7834,18 @@ html[dir="rtl"] .floating-actions .floating-whatsapp {
     order: 3;
     margin-left: auto;
     min-height: 30px;
-    gap: 5px;
+    gap: 7px;
   }
 
   .sw-language-option {
-    font-size: 0.74rem;
+    gap: 4px;
+    font-size: 0.76rem;
   }
 
   .sw-language-flag {
-    font-size: 1.05rem;
+    width: 22px;
+    height: 16px;
+    flex-basis: 22px;
   }
 
   html[dir="rtl"] .floating-actions .floating-call {

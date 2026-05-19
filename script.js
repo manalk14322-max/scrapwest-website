@@ -2,8 +2,8 @@ const menuToggle = document.querySelector(".menu-toggle");
 const mainNav = document.querySelector(".main-nav");
 
 const languageOptions = [
-  { value: "ar", label: "Arabic", short: "\u0627\u0644\u0639\u0631\u0628\u064A\u0629", flag: "\u{1F1F8}\u{1F1E6}", dir: "rtl" },
-  { value: "en", label: "English", short: "English", flag: "\u{1F1EC}\u{1F1E7}", dir: "ltr" }
+  { value: "ar", label: "Arabic", short: "\u0627\u0644\u0639\u0631\u0628\u064A\u0629", flagCode: "sa", dir: "rtl" },
+  { value: "en", label: "English", short: "English", flagCode: "gb", dir: "ltr" }
 ];
 
 const setPageDirection = (language) => {
@@ -31,7 +31,7 @@ window.googleTranslateElementInit = () => {
 
   new window.google.translate.TranslateElement({
     pageLanguage: "en",
-    includedLanguages: "en,ar,zh-CN",
+    includedLanguages: "en,ar",
     autoDisplay: false,
     layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE
   }, "google_translate_element");
@@ -77,7 +77,7 @@ const buildLanguageSwitcher = () => {
   wrapper.innerHTML = `
     ${languageOptions.map((item) => `
       <button class="sw-language-option" type="button" data-language="${item.value}" aria-pressed="${item.value === activeLanguage}">
-        <span class="sw-language-flag" aria-hidden="true">${item.flag}</span>
+        <img class="sw-language-flag" src="https://flagcdn.com/24x18/${item.flagCode}.png" width="24" height="18" alt="" aria-hidden="true" loading="lazy" />
         <span>${item.short}</span>
       </button>
     `).join("")}
