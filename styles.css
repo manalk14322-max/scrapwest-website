@@ -7683,7 +7683,7 @@ body {
 .sw-language-switcher {
   display: inline-flex;
   align-items: center;
-  gap: 9px;
+  gap: 8px;
   min-height: 30px;
   padding: 0;
   border: 0;
@@ -7699,14 +7699,14 @@ body {
 .sw-language-option {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
+  gap: 4px;
   min-height: 26px;
   padding: 0;
   border: 0;
   background: transparent;
   color: #0B66D8;
   font: inherit;
-  font-size: 0.9rem;
+  font-size: 0.86rem;
   font-weight: 800;
   line-height: 1;
   cursor: pointer;
@@ -7825,7 +7825,7 @@ html[dir="rtl"] .floating-actions .floating-whatsapp {
 
 @media (max-width: 1180px) {
   .sw-language-switcher {
-    gap: 8px;
+    gap: 6px;
   }
 }
 
@@ -7834,18 +7834,18 @@ html[dir="rtl"] .floating-actions .floating-whatsapp {
     order: 3;
     margin-left: auto;
     min-height: 30px;
-    gap: 7px;
+    gap: 5px;
   }
 
   .sw-language-option {
-    gap: 4px;
-    font-size: 0.76rem;
+    gap: 3px;
+    font-size: 0.68rem;
   }
 
   .sw-language-flag {
-    width: 22px;
-    height: 16px;
-    flex-basis: 22px;
+    width: 20px;
+    height: 15px;
+    flex-basis: 20px;
   }
 
   html[dir="rtl"] .floating-actions .floating-call {

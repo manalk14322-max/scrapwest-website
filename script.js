@@ -3,7 +3,8 @@ const mainNav = document.querySelector(".main-nav");
 
 const languageOptions = [
   { value: "ar", label: "Arabic", short: "\u0627\u0644\u0639\u0631\u0628\u064A\u0629", flagCode: "sa", dir: "rtl" },
-  { value: "en", label: "English", short: "English", flagCode: "gb", dir: "ltr" }
+  { value: "en", label: "English", short: "English", flagCode: "gb", dir: "ltr" },
+  { value: "zh-CN", label: "Chinese", short: "\u4E2D\u6587", flagCode: "cn", dir: "ltr" }
 ];
 
 const setPageDirection = (language) => {
@@ -31,7 +32,7 @@ window.googleTranslateElementInit = () => {
 
   new window.google.translate.TranslateElement({
     pageLanguage: "en",
-    includedLanguages: "en,ar",
+    includedLanguages: "en,ar,zh-CN",
     autoDisplay: false,
     layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE
   }, "google_translate_element");
