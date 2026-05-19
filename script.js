@@ -2,8 +2,8 @@ const menuToggle = document.querySelector(".menu-toggle");
 const mainNav = document.querySelector(".main-nav");
 
 const languageOptions = [
-  { value: "en", label: "English", short: "EN", flag: "\u{1F1EC}\u{1F1E7}", dir: "ltr" },
-  { value: "ar", label: "Arabic", short: "AR", flag: "\u{1F1E6}\u{1F1EA}", dir: "rtl" },
+  { value: "ar", label: "Arabic", short: "\u0627\u0644\u0639\u0631\u0628\u064A\u0629", flag: "\u{1F1F8}\u{1F1E6}", dir: "rtl" },
+  { value: "en", label: "English", short: "English", flag: "\u{1F1EC}\u{1F1E7}", dir: "ltr" },
   { value: "zh-CN", label: "Chinese", short: "\u4E2D\u6587", flag: "\u{1F1E8}\u{1F1F3}", dir: "ltr" }
 ];
 
@@ -70,19 +70,30 @@ const buildLanguageSwitcher = () => {
   if (!target || document.querySelector(".sw-language-switcher")) return;
 
   const savedLanguage = window.localStorage.getItem("scrapwestLanguage") || "en";
-  const wrapper = document.createElement("label");
+  const activeLanguage = languageOptions.some((item) => item.value === savedLanguage) ? savedLanguage : "en";
+  const wrapper = document.createElement("div");
   wrapper.className = "sw-language-switcher";
+  wrapper.setAttribute("role", "group");
   wrapper.setAttribute("aria-label", "Change website language");
   wrapper.innerHTML = `
-    <select>
-      ${languageOptions.map((item) => `<option value="${item.value}">${item.flag} ${item.short}</option>`).join("")}
-    </select>
+    ${languageOptions.map((item) => `
+      <button class="sw-language-option" type="button" data-language="${item.value}" aria-pressed="${item.value === activeLanguage}">
+        <span class="sw-language-flag" aria-hidden="true">${item.flag}</span>
+        <span>${item.short}</span>
+      </button>
+    `).join("")}
   `;
 
-  const select = wrapper.querySelector("select");
-  select.value = languageOptions.some((item) => item.value === savedLanguage) ? savedLanguage : "en";
-  setPageDirection(select.value);
-  select.addEventListener("change", () => applyGoogleLanguage(select.value));
+  setPageDirection(activeLanguage);
+  wrapper.querySelectorAll(".sw-language-option").forEach((button) => {
+    button.addEventListener("click", () => {
+      const language = button.dataset.language || "en";
+      wrapper.querySelectorAll(".sw-language-option").forEach((item) => {
+        item.setAttribute("aria-pressed", String(item === button));
+      });
+      applyGoogleLanguage(language);
+    });
+  });
 
   if (socialStrip) {
     socialStrip.appendChild(wrapper);
@@ -105,8 +116,8 @@ const buildLanguageSwitcher = () => {
     document.head.appendChild(translateScript);
   }
 
-  if (select.value !== "en") {
-    applyGoogleLanguage(select.value);
+  if (activeLanguage !== "en") {
+    applyGoogleLanguage(activeLanguage);
   }
 };
 

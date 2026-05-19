@@ -7234,6 +7234,10 @@ body {
 
 .sw-social-strip .sw-language-switcher {
   margin-left: auto;
+  padding: 3px 9px;
+  border: 1px solid rgba(5, 11, 18, 0.08);
+  border-radius: 2px;
+  background: #ffffff;
 }
 
 .sw-social-links a {
@@ -7679,34 +7683,52 @@ body {
 .sw-language-switcher {
   display: inline-flex;
   align-items: center;
+  gap: 10px;
   min-height: 30px;
-  padding: 3px;
-  border: 1px solid rgba(249, 115, 22, 0.28);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.045);
-  color: #fff;
-  font-weight: 800;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #0B66D8;
+  font-weight: 700;
   line-height: 1;
   white-space: nowrap;
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+  box-shadow: none;
 }
 
-.sw-language-switcher span {
-  display: none;
-}
-
-.sw-language-switcher select {
-  min-width: 82px;
+.sw-language-option {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 28px;
+  padding: 0;
   border: 0;
-  outline: 0;
-  border-radius: 999px;
-  padding: 6px 22px 6px 10px;
-  background: rgba(255, 255, 255, 0.96);
-  color: #07151D;
+  background: transparent;
+  color: #0B66D8;
   font: inherit;
-  font-size: 0.74rem;
-  font-weight: 900;
+  font-size: 0.9rem;
+  font-weight: 800;
+  line-height: 1;
   cursor: pointer;
+}
+
+.sw-language-option:hover,
+.sw-language-option:focus,
+.sw-language-option[aria-pressed="true"] {
+  color: #004DAA;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.sw-language-option:focus-visible {
+  outline: 2px solid rgba(11, 102, 216, 0.35);
+  outline-offset: 3px;
+}
+
+.sw-language-flag {
+  display: inline-block;
+  font-size: 1.16rem;
+  line-height: 1;
 }
 
 #google_translate_element {
@@ -7798,8 +7820,8 @@ html[dir="rtl"] .floating-actions .floating-whatsapp {
 }
 
 @media (max-width: 1180px) {
-  .sw-language-switcher select {
-    min-width: 78px;
+  .sw-language-switcher {
+    gap: 8px;
   }
 }
 
@@ -7808,13 +7830,15 @@ html[dir="rtl"] .floating-actions .floating-whatsapp {
     order: 3;
     margin-left: auto;
     min-height: 30px;
-    padding: 3px 4px;
+    gap: 7px;
   }
 
-  .sw-language-switcher select {
-    min-width: 76px;
-    padding: 6px 20px 6px 8px;
-    font-size: 0.68rem;
+  .sw-language-option {
+    font-size: 0.76rem;
+  }
+
+  .sw-language-flag {
+    font-size: 1rem;
   }
 
   html[dir="rtl"] .floating-actions .floating-call {
