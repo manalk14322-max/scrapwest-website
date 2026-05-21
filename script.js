@@ -98,8 +98,12 @@ const buildLanguageSwitcher = () => {
   if (socialStrip) {
     socialStrip.appendChild(wrapper);
   } else {
-    const actions = nav.querySelector(".header-actions");
-    nav.insertBefore(wrapper, actions || nav.querySelector(".menu-toggle") || null);
+    const menu = nav.querySelector(".main-nav");
+    if (menu) {
+      menu.appendChild(wrapper);
+    } else {
+      nav.insertBefore(wrapper, nav.querySelector(".menu-toggle") || null);
+    }
   }
 
   if (!document.querySelector("#google_translate_element")) {
