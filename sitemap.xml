@@ -115,6 +115,12 @@
     <priority>0.85</priority>
   </url>
   <url>
+    <loc>https://manalk14322-max.github.io/scrapwest-website/gallery/</loc>
+    <lastmod>2026-05-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://manalk14322-max.github.io/scrapwest-website/hvac-item-scrap/</loc>
     <lastmod>2026-05-09</lastmod>
     <changefreq>weekly</changefreq>
